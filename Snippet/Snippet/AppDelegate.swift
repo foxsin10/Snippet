@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Snippet
 //
-//  Created by 杨子疆 on 2018/1/31.
+//  Created by yzj on 2018/1/31.
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 

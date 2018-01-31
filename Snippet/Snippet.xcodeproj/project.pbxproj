@@ -14,6 +14,9 @@
 		15076EB32021B9490097CC83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15076EB12021B9490097CC83 /* LaunchScreen.storyboard */; };
 		15076EBE2021B9490097CC83 /* SnippetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EBD2021B9490097CC83 /* SnippetTests.swift */; };
 		15076EC92021B9490097CC83 /* SnippetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EC82021B9490097CC83 /* SnippetUITests.swift */; };
+		15076EDA2021BBDB0097CC83 /* SnippetsNameSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076ED92021BBDB0097CC83 /* SnippetsNameSpace.swift */; };
+		15076EDD2021BEE70097CC83 /* UIViewSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EDC2021BEE70097CC83 /* UIViewSnippet.swift */; };
+		15076EDF2021C59D0097CC83 /* UILabelSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EDE2021C59D0097CC83 /* UILabelSnippet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		15076EC42021B9490097CC83 /* SnippetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnippetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		15076EC82021B9490097CC83 /* SnippetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetUITests.swift; sourceTree = "<group>"; };
 		15076ECA2021B9490097CC83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15076ED92021BBDB0097CC83 /* SnippetsNameSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnippetsNameSpace.swift; sourceTree = "<group>"; };
+		15076EDC2021BEE70097CC83 /* UIViewSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSnippet.swift; sourceTree = "<group>"; };
+		15076EDE2021C59D0097CC83 /* UILabelSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelSnippet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		15076EA72021B9490097CC83 /* Snippet */ = {
 			isa = PBXGroup;
 			children = (
+				15076ED62021BBB20097CC83 /* Snippet */,
 				15076EA82021B9490097CC83 /* AppDelegate.swift */,
 				15076EAA2021B9490097CC83 /* ViewController.swift */,
 				15076EAC2021B9490097CC83 /* Main.storyboard */,
@@ -123,6 +130,24 @@
 				15076ECA2021B9490097CC83 /* Info.plist */,
 			);
 			path = SnippetUITests;
+			sourceTree = "<group>";
+		};
+		15076ED62021BBB20097CC83 /* Snippet */ = {
+			isa = PBXGroup;
+			children = (
+				15076EDB2021BEDA0097CC83 /* Extensions */,
+				15076ED92021BBDB0097CC83 /* SnippetsNameSpace.swift */,
+			);
+			path = Snippet;
+			sourceTree = "<group>";
+		};
+		15076EDB2021BEDA0097CC83 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				15076EDC2021BEE70097CC83 /* UIViewSnippet.swift */,
+				15076EDE2021C59D0097CC83 /* UILabelSnippet.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15076EDF2021C59D0097CC83 /* UILabelSnippet.swift in Sources */,
+				15076EDD2021BEE70097CC83 /* UIViewSnippet.swift in Sources */,
+				15076EDA2021BBDB0097CC83 /* SnippetsNameSpace.swift in Sources */,
 				15076EAB2021B9490097CC83 /* ViewController.swift in Sources */,
 				15076EA92021B9490097CC83 /* AppDelegate.swift in Sources */,
 			);
