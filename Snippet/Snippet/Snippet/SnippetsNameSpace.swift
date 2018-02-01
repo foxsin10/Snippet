@@ -22,6 +22,8 @@ public struct SnippetObject<Base>: SnippetObjectProtocol {
     }
 }
 
+
+/// namespace for this repo
 public protocol SnippetComppatiable {
     associatedtype SnippetCompatibleType
 
