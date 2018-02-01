@@ -34,3 +34,40 @@ class SnippetTests: XCTestCase {
     }
     
 }
+
+
+extension SnippetTests {
+
+    func testLabelAttribute() {
+
+        let targetString = "some test for AttributedText"
+        let element = "AttributedText"
+
+        let label = UILabel()
+        label.sp
+            .apply({ (v) in
+                v.font = UIFont.systemFont(ofSize: 11)
+                v.textColor = .orange
+            })
+            .attribute(targetString, for: element, with: .purple)
+
+        let baseNString = targetString as NSString
+        let elementRange = baseNString.range(of: element)
+        let attributeString: NSMutableAttributedString = .init(string: targetString)
+        let elemntButes: [NSAttributedStringKey: Any] = [
+            .font : label.font,
+            .foregroundColor : UIColor.purple
+        ]
+
+        attributeString.addAttributes(elemntButes, range: elementRange)
+
+        var labelAttributedText: NSMutableAttributedString = NSMutableAttributedString.init(string: "")
+
+        if let t = label.attributedText {
+            labelAttributedText = NSMutableAttributedString.init(attributedString: t)
+        }
+
+        assert(labelAttributedText == attributeString, "judge AttibutedText failed")
+
+    }
+}

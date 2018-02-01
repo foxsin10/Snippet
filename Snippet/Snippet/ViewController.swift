@@ -14,18 +14,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-         _ = UILabel()
-            .sp.layout(CGRect.init(x: 20, y: 40, width: 100, height: 40))
+        let label = UILabel()
+        label.sp
+            .layout(CGRect.init(x: 20, y: 40, width: 100, height: 40))
             .add(to: view)
-            .customSet({ (v) in
+            .apply({ (v) in
                 v.font = UIFont.systemFont(ofSize: 12)
                 v.textColor = .orange
             })
             .attribute("aaddeent", for: "ee", with: .red)
-        view.sp.customSet { (v) in
+        
+        view.sp.apply { (v) in
             v.backgroundColor = .white
         }
-        
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+            let s: String? = "ada"
+            label.text = s.sp.wrapped
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

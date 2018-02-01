@@ -11,7 +11,7 @@ import UIKit
 extension SnippetObject where Base: UIView {
 
     @discardableResult
-    public func customSet(_ settingss: (_ v: Base) -> Void) -> SnippetObject {
+    public func apply(_ settingss: (_ v: Base) -> Void) -> SnippetObject {
         settingss(base)
         return self
     }
