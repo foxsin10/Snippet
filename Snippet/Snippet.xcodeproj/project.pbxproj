@@ -18,6 +18,7 @@
 		15076EDD2021BEE70097CC83 /* UIViewSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EDC2021BEE70097CC83 /* UIViewSnippet.swift */; };
 		15076EDF2021C59D0097CC83 /* UILabelSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EDE2021C59D0097CC83 /* UILabelSnippet.swift */; };
 		15076EE42021CA970097CC83 /* StringSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EE32021CA970097CC83 /* StringSnippet.swift */; };
+		153DBE672022FBC400420831 /* UIGestureRecognizerSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE662022FBC400420831 /* UIGestureRecognizerSnippet.swift */; };
 		15E6159B2022A25B006ED278 /* OptionalSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159A2022A25B006ED278 /* OptionalSnippet.swift */; };
 		15E6159D2022A988006ED278 /* UIButtonSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159C2022A988006ED278 /* UIButtonSnippet.swift */; };
 		15E6159F2022BCCC006ED278 /* UIControlSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159E2022BCCC006ED278 /* UIControlSnippet.swift */; };
@@ -62,6 +63,7 @@
 		15076EDC2021BEE70097CC83 /* UIViewSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewSnippet.swift; sourceTree = "<group>"; };
 		15076EDE2021C59D0097CC83 /* UILabelSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelSnippet.swift; sourceTree = "<group>"; };
 		15076EE32021CA970097CC83 /* StringSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSnippet.swift; sourceTree = "<group>"; };
+		153DBE662022FBC400420831 /* UIGestureRecognizerSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerSnippet.swift; sourceTree = "<group>"; };
 		15E6159A2022A25B006ED278 /* OptionalSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalSnippet.swift; sourceTree = "<group>"; };
 		15E6159C2022A988006ED278 /* UIButtonSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonSnippet.swift; sourceTree = "<group>"; };
 		15E6159E2022BCCC006ED278 /* UIControlSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSnippet.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				15076EDE2021C59D0097CC83 /* UILabelSnippet.swift */,
 				15E6159C2022A988006ED278 /* UIButtonSnippet.swift */,
 				15E6159E2022BCCC006ED278 /* UIControlSnippet.swift */,
+				153DBE662022FBC400420831 /* UIGestureRecognizerSnippet.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				15076EE42021CA970097CC83 /* StringSnippet.swift in Sources */,
 				15076EA92021B9490097CC83 /* AppDelegate.swift in Sources */,
 				15E615A62022E713006ED278 /* ShowLabelSnippetViewController.swift in Sources */,
+				153DBE672022FBC400420831 /* UIGestureRecognizerSnippet.swift in Sources */,
 				15E615A82022E725006ED278 /* ShowViewSnippetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

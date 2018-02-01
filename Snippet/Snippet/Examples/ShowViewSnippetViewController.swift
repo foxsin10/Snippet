@@ -10,26 +10,56 @@ import UIKit
 
 class ShowViewSnippetViewController: UIViewController {
 
+    private lazy var somview: UIView = {
+        let v = UIView()
+        v.backgroundColor = .cyan
+        v.frame = CGRect.init(x: 300, y: 200, width: 200, height: 200)
+        v.isUserInteractionEnabled = true 
+        return v
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Button Snippet"
         // Do any additional setup after loading the view.
+        congifSomeViews()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension ShowViewSnippetViewController {
+    private func congifSomeViews() {
+        if let ges = self.somview.gestureRecognizers {
+            print(ges)
+        }
+        somview.sp
+            .add(to: view)
+            .click {
+                [unowned self] in
+                print("congifSomeViews")
+                if let ges = self.somview.gestureRecognizers {
+                    print(ges)
+                }
+                self.transformSomeView()
+        }
     }
-    */
 
+    private func transformSomeView() {
+        somview.sp
+            .apply { (v) in
+                v.backgroundColor = .orange
+            }
+            .layout(CGRect.init(x: 20, y: 100, width: 70, height: 70))
+            .click {
+                [unowned self] in
+                print("transform")
+                guard let ges = self.somview.gestureRecognizers else { return }
+                print(ges)
+        }
+    }
 }

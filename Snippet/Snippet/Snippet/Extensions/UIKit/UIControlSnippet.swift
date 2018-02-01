@@ -8,6 +8,24 @@
 
 import UIKit
 
+fileprivate final class GestureTrigger {
+    let trigger: (() -> Void)?
+
+    init(_ trigger: (() -> Void)?) {
+        self.trigger = trigger
+
+    }
+
+    @objc
+    func triggered() {
+        trigger?()
+    }
+
+    deinit {
+        print("\(self) deinit")
+    }
+}
+
 fileprivate final class EventTrigger {
     let trigger: (() -> Void)?
 
@@ -20,6 +38,9 @@ fileprivate final class EventTrigger {
         trigger?()
     }
 
+    deinit {
+        print("\(self) deinit")
+    }
 }
 
 fileprivate struct TriggerEvent {
@@ -69,6 +90,49 @@ fileprivate struct TriggerEvent {
 
 }
 
+
+private var viewClickKey: Void?
+fileprivate let viewClickKeyIdentifier = "viewClickKey"
+extension SnippetObject where Base: UIView {
+
+    @discardableResult
+    public func click(_ action: (() -> Void)?) -> SnippetObject {
+
+        guard let targetGes = base.gestureRecognizers else {
+            let trigger = GestureTrigger.init(action)
+            var tap = UITapGestureRecognizer.init(target: trigger,
+                                                  action: #selector(GestureTrigger.triggered))
+            tap.sp.identifier = viewClickKeyIdentifier
+
+            self.base.isUserInteractionEnabled = true
+            self.base.addGestureRecognizer(tap)
+            objc_setAssociatedObject(self.base,
+                                     &viewClickKey,
+                                     trigger,
+                                     .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+
+            return self
+        }
+
+        let target = targetGes.filter({ $0.sp.identifier == viewClickKeyIdentifier })
+        guard target.count == 1 else {
+            return self
+        }
+
+        let newTrigger = GestureTrigger.init(action)
+        let trigger = objc_getAssociatedObject(base, &viewClickKey) as! GestureTrigger
+        
+        target.first!.removeTarget(trigger, action: #selector(GestureTrigger.triggered))
+        target.first!.addTarget(newTrigger, action: #selector(GestureTrigger.triggered))
+
+        objc_setAssociatedObject(self.base,
+                                 &viewClickKey,
+                                 newTrigger,
+                                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        return self
+    }
+
+}
 
 extension SnippetObject where Base: UIControl {
     

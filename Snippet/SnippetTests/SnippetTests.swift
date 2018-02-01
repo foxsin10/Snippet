@@ -38,6 +38,22 @@ class SnippetTests: XCTestCase {
 
 extension SnippetTests {
 
+    func testViewClick() {
+        let v = UIView()
+
+        assert( v.gestureRecognizers == nil, "ops, invalid count")
+
+        v.sp.click {
+            print("dad")
+        }
+
+        assert(v.gestureRecognizers!.count == 1, "ops, count overflow")
+        v.sp.click {
+            print("test")
+        }
+         assert(v.gestureRecognizers!.count == 1, "ops, count overflow again")
+    }
+
     func testLabelAttribute() {
 
         let targetString = "some test for AttributedText"
