@@ -8,24 +8,6 @@
 
 import UIKit
 
-fileprivate final class GestureTrigger {
-    let trigger: (() -> Void)?
-
-    init(_ trigger: (() -> Void)?) {
-        self.trigger = trigger
-
-    }
-
-    @objc
-    func triggered() {
-        trigger?()
-    }
-
-    deinit {
-        print("\(self) deinit")
-    }
-}
-
 fileprivate final class EventTrigger {
     let trigger: (() -> Void)?
 
@@ -99,9 +81,9 @@ extension SnippetObject where Base: UIView {
     public func click(_ action: (() -> Void)?) -> SnippetObject {
         
         guard let targetGes = base.gestureRecognizers else {
-            let trigger = GestureTrigger.init(action)
+            let trigger = EventTrigger.init(action)
             var tap = UITapGestureRecognizer.init(target: trigger,
-                                                  action: #selector(GestureTrigger.triggered))
+                                                  action: #selector(EventTrigger.triggered))
             tap.sp.identifier = viewClickKeyIdentifier
 
             self.base.isUserInteractionEnabled = true
@@ -119,11 +101,11 @@ extension SnippetObject where Base: UIView {
             return self
         }
 
-        let newTrigger = GestureTrigger.init(action)
-        let trigger = objc_getAssociatedObject(base, &viewClickKey) as! GestureTrigger
+        let newTrigger = EventTrigger.init(action)
+        let trigger = objc_getAssociatedObject(base, &viewClickKey) as! EventTrigger
         
-        target.first!.removeTarget(trigger, action: #selector(GestureTrigger.triggered))
-        target.first!.addTarget(newTrigger, action: #selector(GestureTrigger.triggered))
+        target.first!.removeTarget(trigger, action: #selector(EventTrigger.triggered))
+        target.first!.addTarget(newTrigger, action: #selector(EventTrigger.triggered))
 
         objc_setAssociatedObject(self.base,
                                  &viewClickKey,
