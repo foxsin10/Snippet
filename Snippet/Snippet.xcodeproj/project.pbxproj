@@ -20,6 +20,11 @@
 		15076EE42021CA970097CC83 /* StringSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15076EE32021CA970097CC83 /* StringSnippet.swift */; };
 		15E6159B2022A25B006ED278 /* OptionalSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159A2022A25B006ED278 /* OptionalSnippet.swift */; };
 		15E6159D2022A988006ED278 /* UIButtonSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159C2022A988006ED278 /* UIButtonSnippet.swift */; };
+		15E6159F2022BCCC006ED278 /* UIControlSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159E2022BCCC006ED278 /* UIControlSnippet.swift */; };
+		15E615A22022E567006ED278 /* TypeInfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E615A12022E567006ED278 /* TypeInfer.swift */; };
+		15E615A42022E705006ED278 /* ShowButtonSnippetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E615A32022E705006ED278 /* ShowButtonSnippetViewController.swift */; };
+		15E615A62022E713006ED278 /* ShowLabelSnippetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E615A52022E713006ED278 /* ShowLabelSnippetViewController.swift */; };
+		15E615A82022E725006ED278 /* ShowViewSnippetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E615A72022E725006ED278 /* ShowViewSnippetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		15076EE32021CA970097CC83 /* StringSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringSnippet.swift; sourceTree = "<group>"; };
 		15E6159A2022A25B006ED278 /* OptionalSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalSnippet.swift; sourceTree = "<group>"; };
 		15E6159C2022A988006ED278 /* UIButtonSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonSnippet.swift; sourceTree = "<group>"; };
+		15E6159E2022BCCC006ED278 /* UIControlSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlSnippet.swift; sourceTree = "<group>"; };
+		15E615A12022E567006ED278 /* TypeInfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeInfer.swift; sourceTree = "<group>"; };
+		15E615A32022E705006ED278 /* ShowButtonSnippetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowButtonSnippetViewController.swift; sourceTree = "<group>"; };
+		15E615A52022E713006ED278 /* ShowLabelSnippetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLabelSnippetViewController.swift; sourceTree = "<group>"; };
+		15E615A72022E725006ED278 /* ShowViewSnippetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewSnippetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +119,10 @@
 		15076EA72021B9490097CC83 /* Snippet */ = {
 			isa = PBXGroup;
 			children = (
+				15E615A02022DC01006ED278 /* Examples */,
 				15076ED62021BBB20097CC83 /* Snippet */,
 				15076EA82021B9490097CC83 /* AppDelegate.swift */,
+				15E615A12022E567006ED278 /* TypeInfer.swift */,
 				15076EAA2021B9490097CC83 /* ViewController.swift */,
 				15076EAC2021B9490097CC83 /* Main.storyboard */,
 				15076EAF2021B9490097CC83 /* Assets.xcassets */,
@@ -162,6 +174,7 @@
 				15076EDC2021BEE70097CC83 /* UIViewSnippet.swift */,
 				15076EDE2021C59D0097CC83 /* UILabelSnippet.swift */,
 				15E6159C2022A988006ED278 /* UIButtonSnippet.swift */,
+				15E6159E2022BCCC006ED278 /* UIControlSnippet.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -173,6 +186,16 @@
 				15E6159A2022A25B006ED278 /* OptionalSnippet.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		15E615A02022DC01006ED278 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				15E615A32022E705006ED278 /* ShowButtonSnippetViewController.swift */,
+				15E615A52022E713006ED278 /* ShowLabelSnippetViewController.swift */,
+				15E615A72022E725006ED278 /* ShowViewSnippetViewController.swift */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,13 +333,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				15076EDF2021C59D0097CC83 /* UILabelSnippet.swift in Sources */,
+				15E6159F2022BCCC006ED278 /* UIControlSnippet.swift in Sources */,
+				15E615A22022E567006ED278 /* TypeInfer.swift in Sources */,
 				15E6159B2022A25B006ED278 /* OptionalSnippet.swift in Sources */,
+				15E615A42022E705006ED278 /* ShowButtonSnippetViewController.swift in Sources */,
 				15076EDD2021BEE70097CC83 /* UIViewSnippet.swift in Sources */,
 				15076EDA2021BBDB0097CC83 /* SnippetsNameSpace.swift in Sources */,
 				15076EAB2021B9490097CC83 /* ViewController.swift in Sources */,
 				15E6159D2022A988006ED278 /* UIButtonSnippet.swift in Sources */,
 				15076EE42021CA970097CC83 /* StringSnippet.swift in Sources */,
 				15076EA92021B9490097CC83 /* AppDelegate.swift in Sources */,
+				15E615A62022E713006ED278 /* ShowLabelSnippetViewController.swift in Sources */,
+				15E615A82022E725006ED278 /* ShowViewSnippetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Snippet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yzj.Snippet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +527,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Snippet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yzj.Snippet;
 				PRODUCT_NAME = "$(TARGET_NAME)";

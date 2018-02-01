@@ -8,7 +8,11 @@
 
 import UIKit.UIButton
 
+
+
 extension SnippetObject where Base: UIButton {
+
+    
     @discardableResult
     public func attribute(_ targetString: String,
                           for element: String,
@@ -43,4 +47,6 @@ extension SnippetObject where Base: UIButton {
         guard let f = base.titleLabel?.font else { return self }
         return attribute(targetString, for: element, with: (color, f))
     }
+
+   
 }

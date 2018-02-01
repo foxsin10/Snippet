@@ -8,31 +8,32 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
 
+    @IBOutlet weak var table: UITableView! {
+        didSet { table.separatorStyle = .none }
+    }
+
+    private lazy var types: [SnippetType] = {
+        return [.view, .label, .button]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        let label = UILabel()
-        label.sp
-            .layout(CGRect.init(x: 20, y: 40, width: 100, height: 40))
-            .add(to: view)
-            .apply({ (v) in
-                v.font = UIFont.systemFont(ofSize: 12)
-                v.textColor = .orange
-            })
-            .attribute("aaddeent", for: "ee", with: .red)
+        title = "Snippets"
         
-        view.sp.apply { (v) in
-            v.backgroundColor = .white
-        }
+        navigationController?.navigationBar.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.shadowImage = UIImage()
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
-            let s: String? = "ada"
-            label.text = s.sp.wrapped
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.largeTitleDisplayMode = .always
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +41,35 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+   
 }
 
+extension ViewController : UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+        let type = types[indexPath.row]
+        cell.textLabel?.text = type.name.rawValue
+        cell.detailTextLabel?.text = type.content
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+}
+
+extension ViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let type = types[indexPath.row]
+        let vcName = type.name.showExampleIdentifier()
+
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: vcName) else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
+
+    }
+}
