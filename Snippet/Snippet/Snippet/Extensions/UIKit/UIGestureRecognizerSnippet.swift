@@ -8,7 +8,7 @@
 
 import UIKit.UIGestureRecognizer
 
-private var SpGesGestureRecognizerIdentifier: Void?
+fileprivate var SpGesGestureRecognizerIdentifier: Void?
 extension SnippetObject where Base: UIGestureRecognizer {
     public var identifier: String {
         set(newValue) {
