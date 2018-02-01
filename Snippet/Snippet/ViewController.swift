@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         didSet { table.separatorStyle = .none }
     }
 
-    private lazy var types: [SnippetType] = {
+    private lazy var types: [Example] = {
         return [.view, .label, .button]
     }()
     

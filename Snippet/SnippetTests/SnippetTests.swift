@@ -51,7 +51,7 @@ extension SnippetTests {
         v.sp.click {
             print("test")
         }
-         assert(v.gestureRecognizers!.count == 1, "ops, count overflow again")
+        assert(v.gestureRecognizers!.count == 1, "ops, count overflow again")
     }
 
     func testLabelAttribute() {

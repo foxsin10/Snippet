@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SnippetTypeRefer: String {
+enum ExampleRefer: String {
     case view = "UIView"
     case label = "UILabel"
     case button = "UIButton"
@@ -25,19 +25,19 @@ enum SnippetTypeRefer: String {
     }
 }
 
-struct SnippetType {
-    let name: SnippetTypeRefer
+struct Example {
+    let name: ExampleRefer
     let content: String
 
-    static var view: SnippetType {
-        return SnippetType.init(name: .view, content: "view config")
+    static var view: Example {
+        return Example.init(name: .view, content: "view config")
     }
 
-    static var label: SnippetType {
-        return SnippetType.init(name: .label, content: "attributedText")
+    static var label: Example {
+        return Example.init(name: .label, content: "attributedText")
     }
 
-    static var button: SnippetType {
+    static var button: Example {
         return .init(name: .button, content: "attributedText, onclickEvent")
     }
 
