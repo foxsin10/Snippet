@@ -74,7 +74,7 @@ fileprivate struct TriggerEvent {
 
 
 private var viewClickKey: Void?
-fileprivate let viewClickKeyIdentifier = "viewClickKey"
+fileprivate let viewClickIdentifier = "viewClickKey"
 extension SnippetObject where Base: UIView {
 
     @discardableResult
@@ -84,7 +84,7 @@ extension SnippetObject where Base: UIView {
             let trigger = EventTrigger.init(action)
             var tap = UITapGestureRecognizer.init(target: trigger,
                                                   action: #selector(EventTrigger.triggered))
-            tap.sp.identifier = viewClickKeyIdentifier
+            tap.sp.identifier = viewClickIdentifier
 
             self.base.isUserInteractionEnabled = true
             self.base.addGestureRecognizer(tap)
@@ -96,7 +96,7 @@ extension SnippetObject where Base: UIView {
             return self
         }
 
-        let target = targetGes.filter({ $0.sp.identifier == viewClickKeyIdentifier })
+        let target = targetGes.filter({ $0.sp.identifier == viewClickIdentifier })
         guard target.count == 1 else {
             return self
         }
