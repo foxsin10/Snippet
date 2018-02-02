@@ -10,6 +10,7 @@ import UIKit.UIButton
 
 extension SnippetObject where Base: UIButton {
 
+    
     @discardableResult
     public func attribute(_ targetString: String,
                           for element: String,
