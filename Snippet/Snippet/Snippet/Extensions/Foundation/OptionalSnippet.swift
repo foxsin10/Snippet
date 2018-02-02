@@ -14,5 +14,7 @@ extension SnippetObjectProtocol where SOCompatibleType == Optional<String> {
     public var wrapped: String {
         guard let s = base else { return "" }
         return s
+
+        
     }
 }
