@@ -38,7 +38,7 @@ extension ShowViewSnippetViewController {
             print(ges)
         }
         somview.sp
-            .add(to: view)
+            .added(to: view)
             .click {
                 [unowned self] in
                 print("congifSomeViews")

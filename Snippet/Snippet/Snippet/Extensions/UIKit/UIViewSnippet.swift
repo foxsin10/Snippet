@@ -17,7 +17,7 @@ extension SnippetObject where Base: UIView {
     }
 
     @discardableResult
-    public func add(to view: UIView) -> SnippetObject {
+    public func added(to view: UIView) -> SnippetObject {
         view.addSubview(self.base)
         return self
     }
