@@ -23,7 +23,7 @@ extension SnippetObject where Base: UITextView {
         }
         return nil
     }
-
+    // this way noneed to adjust the label frame to match the indicator
     @discardableResult
     public func set(_ placeholder: String, for color: UIColor) -> SnippetObject {
         if let view = base.value(forKey: "_placeholderLabel") as? UILabel {
