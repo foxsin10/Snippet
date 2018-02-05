@@ -37,7 +37,7 @@ class ShowButtonSnippetViewController: UIViewController {
                 [weak self] in
                 UIView.animate(withDuration: 0.2, animations: {
                     self?.scale += 0.1
-                    self?.thirdButton.transform = CGAffineTransform.init(scaleX: self!.scale, y: 1)
+                    self?.thirdButton.transform = CGAffineTransform.init(scaleX: self!.scale, y: self!.scale)
                 })
 
         }
