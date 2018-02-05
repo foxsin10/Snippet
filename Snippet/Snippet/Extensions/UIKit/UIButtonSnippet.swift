@@ -14,14 +14,15 @@ extension SnippetObject where Base: UIButton {
     @discardableResult
     public func attribute(_ targetString: String,
                           for element: String,
-                          with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
+                          with sets:(color: UIColor, font: UIFont),
+                          for state: UIControlState = .normal) -> SnippetObject {
 
         guard targetString.contains(element) else {
             print("no element contained")
             return self
         }
 
-        base.titleLabel?.attributedText = nil
+//        base.titleLabel?.attributedText = nil
 
         let baseNString = targetString as NSString
         let elementRange = baseNString.range(of: element)
@@ -35,7 +36,8 @@ extension SnippetObject where Base: UIButton {
 
         attributeString.addAttributes(elemntButes, range: elementRange)
 
-        base.titleLabel?.attributedText = attributeString
+//        base.titleLabel?.attributedText = attributeString
+        base.setAttributedTitle(attributeString, for: state)
 
         return self
     }

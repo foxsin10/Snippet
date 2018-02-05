@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJW-mQ-J0u">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="eg8-gg-RFO" detailTextLabel="GEe-ZF-SwI" style="IBUITableViewCellStyleSubtitle" id="MKT-Ds-PQb">
@@ -93,9 +93,46 @@
                     <view key="view" contentMode="scaleToFill" id="NpL-2I-8bU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxQ-Aq-UFO">
+                                <rect key="frame" x="127" y="210" width="120" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9t-6n-2T8">
+                                <rect key="frame" x="127" y="280" width="120" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z0-fn-MCo">
+                                <rect key="frame" x="127" y="140" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Z3v-sv-ZyB"/>
+                                    <constraint firstAttribute="height" constant="30" id="o7C-pA-tV6"/>
+                                </constraints>
+                                <state key="normal" title="first button"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S9t-6n-2T8" firstAttribute="width" secondItem="0Z0-fn-MCo" secondAttribute="width" id="CnN-7S-Ty1"/>
+                            <constraint firstItem="0Z0-fn-MCo" firstAttribute="top" secondItem="SJq-Nb-Ny9" secondAttribute="top" constant="120" id="Dd6-o5-Dup"/>
+                            <constraint firstItem="RxQ-Aq-UFO" firstAttribute="top" secondItem="0Z0-fn-MCo" secondAttribute="bottom" constant="40" id="Eax-ii-X2n"/>
+                            <constraint firstItem="S9t-6n-2T8" firstAttribute="top" secondItem="RxQ-Aq-UFO" secondAttribute="bottom" constant="40" id="Ect-ga-2fx"/>
+                            <constraint firstItem="S9t-6n-2T8" firstAttribute="centerX" secondItem="0Z0-fn-MCo" secondAttribute="centerX" id="MnO-LD-sHO"/>
+                            <constraint firstItem="S9t-6n-2T8" firstAttribute="height" secondItem="0Z0-fn-MCo" secondAttribute="height" id="XR9-I5-yak"/>
+                            <constraint firstItem="RxQ-Aq-UFO" firstAttribute="height" secondItem="0Z0-fn-MCo" secondAttribute="height" id="ZM2-e5-vx1"/>
+                            <constraint firstItem="RxQ-Aq-UFO" firstAttribute="centerX" secondItem="0Z0-fn-MCo" secondAttribute="centerX" id="eIW-4i-Jib"/>
+                            <constraint firstItem="S9t-6n-2T8" firstAttribute="centerX" secondItem="NpL-2I-8bU" secondAttribute="centerX" id="jXq-fV-9uA"/>
+                            <constraint firstItem="RxQ-Aq-UFO" firstAttribute="centerX" secondItem="NpL-2I-8bU" secondAttribute="centerX" id="nOz-zO-Nra"/>
+                            <constraint firstItem="RxQ-Aq-UFO" firstAttribute="width" secondItem="0Z0-fn-MCo" secondAttribute="width" id="oFX-dF-Phn"/>
+                            <constraint firstItem="0Z0-fn-MCo" firstAttribute="centerX" secondItem="NpL-2I-8bU" secondAttribute="centerX" id="sS6-iF-W1b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SJq-Nb-Ny9"/>
                     </view>
+                    <connections>
+                        <outlet property="firstButton" destination="0Z0-fn-MCo" id="kX4-p8-O57"/>
+                        <outlet property="secondButton" destination="RxQ-Aq-UFO" id="65B-Dh-eWb"/>
+                        <outlet property="thirdButton" destination="S9t-6n-2T8" id="lfj-Hk-GzK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="83C-BG-2zy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,7 +201,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Sp8-7R-lGQ">
             <objects>
-                <navigationController id="Ew4-iQ-sl9" sceneMemberID="viewController">
+                <navigationController hidesBottomBarWhenPushed="YES" toolbarHidden="NO" id="Ew4-iQ-sl9" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nLR-g8-d6F">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

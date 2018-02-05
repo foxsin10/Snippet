@@ -10,13 +10,8 @@ import UIKit
 
 class ShowLabelSnippetViewController: UIViewController {
 
-    enum SnippetDisplay: Int {
-        case labelColor
-        case labelFont
-        case labelFontAndColor
-    }
 
-    private lazy var items: [SnippetDisplay] = [.labelColor, .labelFont, .labelFontAndColor]
+    private lazy var items: [(UILabel, UILabel) -> Void] = []
 
     @IBOutlet weak var tableList: UITableView!
 
@@ -24,6 +19,11 @@ class ShowLabelSnippetViewController: UIViewController {
         super.viewDidLoad()
         title = "Label Snippet"
         // Do any additional setup after loading the view.
+
+        // fuctions
+        items = [attributeColor,
+                 attributeFont,
+                 attributeColorAndFont]
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,17 +31,6 @@ class ShowLabelSnippetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ShowLabelSnippetViewController {
@@ -74,17 +63,10 @@ extension ShowLabelSnippetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        if let textLabel = cell.textLabel, let detailLabel = cell.detailTextLabel {
-            let item = items[indexPath.row]
-            switch item {
-            case .labelColor:
-                attributeColor(textLabel, detailLabel)
-            case .labelFont:
-                attributeColor(textLabel, detailLabel)
-            case .labelFontAndColor:
-                attributeColorAndFont(textLabel, detailLabel)
-            }
-        }
+        guard let textLabel = cell.textLabel, let detailLabel = cell.detailTextLabel else { return cell }
+
+        let item = items[indexPath.row]
+        item(textLabel, detailLabel)
 
         return cell
     }

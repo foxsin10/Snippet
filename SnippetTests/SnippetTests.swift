@@ -38,9 +38,11 @@ class SnippetTests: XCTestCase {
 
 extension SnippetTests {
 
+
+
     func testViewClick() {
         let v = UIView()
-
+        v.frame = CGRect.init(x: 0, y: 0, width: 40, height: 40)
         assert( v.gestureRecognizers == nil, "ops, invalid count")
 
         v.sp.click {
@@ -51,6 +53,7 @@ extension SnippetTests {
         v.sp.click {
             print("test")
         }
+
         assert(v.gestureRecognizers!.count == 1, "ops, count overflow again")
     }
 

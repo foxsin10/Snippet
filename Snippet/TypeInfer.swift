@@ -36,11 +36,11 @@ struct Example {
     let content: String
 
     static var view: Example {
-        return Example.init(name: .view, content: "view config")
+        return .init(name: .view, content: "view config")
     }
 
     static var label: Example {
-        return Example.init(name: .label, content: "attributedText")
+        return .init(name: .label, content: "attributedText")
     }
 
     static var button: Example {
