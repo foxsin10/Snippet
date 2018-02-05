@@ -81,7 +81,7 @@ extension SnippetObject where Base: UIView {
     public func click(_ action: (() -> Void)?) -> SnippetObject {
         
         guard let targetGes = base.gestureRecognizers, targetGes.count > 0 else {
-            let trigger = EventTrigger.init(action)
+            let trigger: EventTrigger = .init(action)
             var tap = UITapGestureRecognizer.init(target: trigger,
                                                   action: #selector(EventTrigger.triggered))
             tap.sp.identifier = viewClickIdentifier
@@ -101,7 +101,7 @@ extension SnippetObject where Base: UIView {
             return self
         }
 
-        let newTrigger = EventTrigger.init(action)
+        let newTrigger: EventTrigger = .init(action)
         let trigger = objc_getAssociatedObject(base, &viewClickKey) as! EventTrigger
         
         target.first!.removeTarget(trigger, action: #selector(EventTrigger.triggered))
@@ -190,7 +190,7 @@ extension SnippetObject where Base: UIControl {
 
         guard let exTarget = objc_getAssociatedObject(base, &key) as? EventTrigger else {
 
-            let trigger = EventTrigger.init(action)
+            let trigger: EventTrigger = .init(action)
             base.addTarget(trigger, action: #selector(EventTrigger.triggered), for: event)
             objc_setAssociatedObject(base,
                                      &key,
@@ -200,7 +200,7 @@ extension SnippetObject where Base: UIControl {
         }
 
         base.removeTarget(exTarget, action: #selector(EventTrigger.triggered), for: event)
-        let trigger = EventTrigger.init(action)
+        let trigger: EventTrigger = .init(action)
         base.addTarget(trigger, action: #selector(EventTrigger.triggered), for: event)
         objc_setAssociatedObject(base,
                                  &key,
