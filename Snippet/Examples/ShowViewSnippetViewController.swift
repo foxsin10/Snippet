@@ -2,7 +2,7 @@
 //  UIViewViewController.swift
 //  Snippet
 //
-//  Created by 杨子疆 on 2018/2/1.
+//  Created by yzjon 2018/2/1.
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
@@ -20,7 +20,7 @@ class ShowViewSnippetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Button Snippet"
+        title = "View Snippet"
         // Do any additional setup after loading the view.
         congifSomeViews()
     }

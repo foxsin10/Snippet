@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String: SnippetComppatiable {}
 extension SnippetObjectProtocol where SOCompatibleType == String {
@@ -25,4 +26,22 @@ extension SnippetObjectProtocol where SOCompatibleType == String {
 
     }
 
+    public func attribute(for element: String, with sets:(color: UIColor, font: UIFont)) -> NSAttributedString? {
+
+        guard base.contains(element) else { return nil }
+        
+        let baseNString = base as NSString
+        let elementRange = baseNString.range(of: element)
+
+        let attributeString: NSMutableAttributedString = .init(string: base)
+
+        let elemntButes: [NSAttributedStringKey: Any] = [
+            .font : sets.font,
+            .foregroundColor : sets.color
+        ]
+
+        attributeString.addAttributes(elemntButes, range: elementRange)
+
+        return attributeString
+    }
 }

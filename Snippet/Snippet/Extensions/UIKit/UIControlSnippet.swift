@@ -8,7 +8,7 @@
 
 import UIKit
 
-fileprivate final class EventTrigger {
+final class EventTrigger {
     let trigger: (() -> Void)?
 
     init(_ trigger: (() -> Void)?) {

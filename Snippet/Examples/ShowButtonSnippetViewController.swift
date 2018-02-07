@@ -18,7 +18,7 @@ class ShowButtonSnippetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "View Snippet"
+        title = "Button Snippet"
         // Do any additional setup after loading the view.
 
         firstButton.sp
@@ -31,9 +31,13 @@ class ShowButtonSnippetViewController: UIViewController {
         let font = UIFont.systemFont(ofSize: 16)
         secondButton.sp
             .attribute("seconde button", for: "button", with: (.gray, font))
+            .onClick {
+                [unowned self] in
+                self.secondButton.sp.attribute("seconde button", for: " ", with: .black)
+        }
 
         thirdButton.sp
-            .link(UIControlEvents.touchUpInside) {
+            .link(.touchUpInside) {
                 [weak self] in
                 UIView.animate(withDuration: 0.2, animations: {
                     self?.scale += 0.1
