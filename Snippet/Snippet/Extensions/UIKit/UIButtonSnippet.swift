@@ -17,7 +17,7 @@ extension SnippetObject where Base: UIButton {
                           with sets:(color: UIColor, font: UIFont),
                           for state: UIControlState = .normal) -> SnippetObject {
 
-        guard targetString.contains(element) else {
+        guard targetString.contains(element), !element.isEmpty else {
             print("no element contained")
             return self
         }
