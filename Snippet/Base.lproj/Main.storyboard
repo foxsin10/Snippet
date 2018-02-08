@@ -78,9 +78,25 @@
                     <view key="view" contentMode="scaleToFill" id="XFN-Og-TJO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4tx-gD-9lp">
+                                <rect key="frame" x="0.0" y="547" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5cQ-ip-2Tx"/>
+                                    <constraint firstAttribute="width" constant="80" id="Pqo-hy-Zh0"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4tx-gD-9lp" firstAttribute="leading" secondItem="oJv-aU-0Ww" secondAttribute="leading" id="7xm-86-glV"/>
+                            <constraint firstItem="oJv-aU-0Ww" firstAttribute="bottom" secondItem="4tx-gD-9lp" secondAttribute="bottom" constant="40" id="jj9-VO-PvK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oJv-aU-0Ww"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="4tx-gD-9lp" id="zSa-jk-Yzt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9l-8p-7ZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

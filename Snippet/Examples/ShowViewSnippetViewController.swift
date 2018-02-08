@@ -18,11 +18,14 @@ class ShowViewSnippetViewController: UIViewController {
         return v
     }()
 
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "View Snippet"
         // Do any additional setup after loading the view.
         congifSomeViews()
+
+        imageView.image = somview.sp.currentshot()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +61,7 @@ extension ShowViewSnippetViewController {
                 [unowned self] in
                 guard let ges = self.somview.gestureRecognizers else { return }
                 print(ges)
+                self.imageView.image = self.somview.sp.currentshot()
         }
     }
 }

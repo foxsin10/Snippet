@@ -10,6 +10,20 @@ import UIKit
 
 extension SnippetObject where Base: UIView {
 
+
+    /// just draw viewcontent in an image
+    ///
+    /// - Returns: an image
+    public func currentshot() -> UIImage? {
+
+        UIGraphicsBeginImageContextWithOptions(base.bounds.size, false, UIScreen.main.scale)
+        guard let contenxt = UIGraphicsGetCurrentContext() else { return nil }
+        base.layer.render(in: contenxt)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+
     @discardableResult
     public func apply(_ settingss: (_ v: Base) -> Void) -> SnippetObject {
         settingss(base)
