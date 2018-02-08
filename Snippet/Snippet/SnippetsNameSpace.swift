@@ -6,7 +6,7 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-
+/// inspired by RxSwift
 
 /// protocol for Struct
 public protocol SnippetObjectProtocol {
@@ -14,6 +14,7 @@ public protocol SnippetObjectProtocol {
     var base: SOCompatibleType { get }
     init(_ base: SOCompatibleType)
 }
+
 
 public struct SnippetObject<Base>: SnippetObjectProtocol {
     public let base: Base

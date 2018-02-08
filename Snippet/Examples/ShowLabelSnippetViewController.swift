@@ -43,17 +43,17 @@ extension ShowLabelSnippetViewController {
     private func attributeFont(_ title: UILabel, _ detail: UILabel) {
         title.text = "Font"
 
-        var font = detail.font
-        font = UIFont.systemFont(ofSize: font!.pointSize + 1)
-        detail.sp.attribute("see hehe string", for: "hehe", with: (detail.textColor, font!))
+        var font: UIFont = detail.font
+        font = UIFont.systemFont(ofSize: font.pointSize + 1)
+        detail.sp.attribute("see hehe string", for: "hehe", with: (detail.textColor, font))
     }
 
     private func attributeColorAndFont(_ title: UILabel, _ detail: UILabel) {
         title.text = "Color and Font"
 
-        var font = detail.font
-        font = UIFont.systemFont(ofSize: font!.pointSize + 1)
-        detail.sp.attribute("see hehe string", for: "hehe", with: (.orange, font!))
+        var font: UIFont = detail.font
+        font = UIFont.systemFont(ofSize: font.pointSize + 1)
+        detail.sp.attribute("see hehe string", for: "hehe", with: (.orange, font))
     }
 }
 
@@ -63,7 +63,9 @@ extension ShowLabelSnippetViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        guard let textLabel = cell.textLabel, let detailLabel = cell.detailTextLabel else { return cell }
+        guard
+            let textLabel = cell.textLabel,
+            let detailLabel = cell.detailTextLabel else { return cell }
 
         let item = items[indexPath.row]
         item(textLabel, detailLabel)

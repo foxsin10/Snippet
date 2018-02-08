@@ -37,7 +37,6 @@ extension ShowTextViewSnippetViewController {
             .apply { (v) in
                 v.placeholder = "text me plz"
             }
-        // 
         firstField.sp.placeholderColor = .cyan
     }
 
