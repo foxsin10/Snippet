@@ -13,7 +13,6 @@ enum ExampleRefer: String {
     case label = "UILabel"
     case button = "UIButton"
     case textView = "UITextView"
-    case textfield = "UITextfield"
 
     func showExampleIdentifier() -> String {
         switch self {
@@ -25,8 +24,6 @@ enum ExampleRefer: String {
             return "ShowButtonSnippetViewController"
         case .textView:
             return "ShowTextViewSnippetViewController"
-        case .textfield:
-            return "ShowTextfieldSnippetViewController"
         }
     }
 }
@@ -51,7 +48,4 @@ struct Example {
         return .init(name: .textView, content: "placeholder")
     }
 
-    static var textfield: Example {
-        return .init(name: .textfield, content: "placeholder color")
-    }
 }

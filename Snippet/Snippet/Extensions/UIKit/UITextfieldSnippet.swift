@@ -10,13 +10,25 @@ import UIKit.UITextField
 
 extension SnippetObject where Base: UITextField {
 
+
+    /// return nil when you call this before set placeholder 
     public var placeholderColor: UIColor? {
         get {
-            return base.value(forKey: "_placeholderLabel.textColor") as? UIColor
+
+            guard let label = base.value(forKey: "_placeholderLabel") as? UILabel else {
+                return nil
+            }
+
+            return label.textColor
         }
 
         set {
-            base.setValue(newValue, forKey: "_placeholderLabel.textColor")
+
+            guard let label = base.value(forKey: "_placeholderLabel") as? UILabel else {
+                return
+            }
+            guard let color = newValue else { return }
+            label.textColor = color
         }
     }
 

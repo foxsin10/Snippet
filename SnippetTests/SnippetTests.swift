@@ -38,8 +38,6 @@ class SnippetTests: XCTestCase {
 
 extension SnippetTests {
 
-
-
     func testViewClick() {
         let v = UIView()
         v.frame = CGRect.init(x: 0, y: 0, width: 40, height: 40)

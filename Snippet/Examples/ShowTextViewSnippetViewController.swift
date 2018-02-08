@@ -18,24 +18,69 @@ class ShowTextViewSnippetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        showFirstField()
+        showSecondField()
+        shwoFirstTextView()
+        showSecondTextView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension ShowTextViewSnippetViewController {
+    private func showFirstField() {
+        firstField.sp
+            .apply { (v) in
+                v.placeholder = "text me plz"
+            }
+        // 
+        firstField.sp.placeholderColor = .cyan
     }
-    */
 
+    private func showSecondField() {
+
+        let label = UILabel()
+        secondField.sp.apply { (v) in
+            v.placeholder = "call me maybe"
+        }
+
+        print(secondField.sp.placeholderColor! == label.textColor) // false
+        print(secondField.sp.placeholderColor == secondField.textColor) // false
+        secondField.sp.placeholderColor = .orange
+    }
+
+    private func shwoFirstTextView() {
+
+        firstTextView.sp
+            .apply({ (v) in
+                v.textColor = .lightGray
+                v.tintColor = .lightGray
+            })
+            .set(placeholder: "call me?", for: .brown)
+
+        let text = firstTextView.sp.placeholder!
+        assert(text == "call me?")
+    }
+
+    private func showSecondTextView() {
+
+        let text = "shwo some attributedText".sp.attribute(for: "attributedText", with: (.red, UIFont.systemFont(ofSize: 12)))!
+
+        let b = secondTextView.sp.attributedPlaceholder
+        assert(b == nil)
+
+        secondTextView.sp
+            .apply { (v) in
+                v.textColor = .orange
+            }
+            .set(placeholder: text, for: .cyan)
+
+        let a = secondTextView.sp.attributedPlaceholder!
+
+        assert(text == a)
+    }
 }

@@ -41,7 +41,6 @@ extension ShowViewSnippetViewController {
             .added(to: view)
             .click {
                 [unowned self] in
-                print("congifSomeViews")
                 if let ges = self.somview.gestureRecognizers {
                     print(ges)
                 }
@@ -57,7 +56,6 @@ extension ShowViewSnippetViewController {
             .layout(CGRect.init(x: 20, y: 100, width: 70, height: 70))
             .click {
                 [unowned self] in
-                print("transform")
                 guard let ges = self.somview.gestureRecognizers else { return }
                 print(ges)
         }

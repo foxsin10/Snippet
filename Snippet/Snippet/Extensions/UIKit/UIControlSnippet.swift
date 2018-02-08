@@ -19,10 +19,6 @@ final class EventTrigger {
     func triggered() {
         trigger?()
     }
-
-    deinit {
-        print("\(self) deinit")
-    }
 }
 
 fileprivate struct TriggerEvent {

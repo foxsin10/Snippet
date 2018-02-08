@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
 
     private lazy var types: [Example] = {
-        return [.view, .label, .button]
+        return [.view, .label, .button, .textView]
     }()
     
     override func viewDidLoad() {
@@ -57,7 +57,7 @@ extension ViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.types.count
     }
 }
 
