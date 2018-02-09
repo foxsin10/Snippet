@@ -126,58 +126,42 @@ extension SnippetObject where Base: UIControl {
         switch event {
         case .touchDown:
             key = TriggerEvent.touchDown
-
         case .touchDownRepeat:
             key = TriggerEvent.touchDownRepeat
-
         case .touchDragInside:
             key = TriggerEvent.touchDragInside
-
         case .touchDragOutside:
             key = TriggerEvent.touchDragOutside
-
         case .touchDragEnter:
             key = TriggerEvent.touchDragEnter
         case .touchDragExit:
             key = TriggerEvent.touchDragExit
-
         case .touchUpInside:
             key = TriggerEvent.touchUpInside
-
         case .touchUpOutside:
             key = TriggerEvent.touchUpOutside
-
         case .touchCancel:
             key = TriggerEvent.touchCancel
-
         case .valueChanged:
             key = TriggerEvent.valueChanged
         case .primaryActionTriggered:
             key = TriggerEvent.primaryActionTriggered
-
-
         case .editingDidBegin:
             key = TriggerEvent.editingDidBegin
-
         case .editingChanged:
             key = TriggerEvent.editingChanged
-
         case .editingDidEnd:
             key = TriggerEvent.editingDidEnd
-
         case .editingDidEndOnExit:
             key = TriggerEvent.editingDidEndOnExit
-
         case .allTouchEvents:
             key = TriggerEvent.allTouchEvents
         case .allEditingEvents:
             key = TriggerEvent.allEditingEvents
         case .applicationReserved:
             key = TriggerEvent.applicationReserved
-
         case .systemReserved:
             key = TriggerEvent.systemReserved
-
         case .allEvents:
             key = TriggerEvent.allEvents
         default:
