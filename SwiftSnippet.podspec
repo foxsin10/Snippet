@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "Snippet"
-  s.version      = "0.0.1"
+  s.name         = "SwiftSnippet"
+  s.version      = "0.0.6"
   s.summary      = "some code snippet with namespace."
 
   # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "some code snippet with namespace."
+  s.description  = "some code snippet with namespace, some codes in cocoa, easy to use"
 
   s.homepage     = "https://github.com/foxsin10/Snippet.git"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -89,11 +89,17 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Snippet/Snippet/*.{swift}"
+
+  s.source_files  = "Snippet/Snippet", "Snippet/Snippet/Extensions/UIKit","Snippet/Snippet/Extensions/Foundation"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
 
+  # ――― Swift Version ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  Specify the swift version
+  #
+  s.swift_version = "4.0"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
