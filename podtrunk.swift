@@ -37,14 +37,14 @@ struct VersionInfo {
     }
 }
 
-protocol ExcuteCommand {
+protocol ExcutableCommand {
     var path: String { get }
     var arguments: [String] { get set }
 
     func excute()
 }
 
-extension ExcuteCommand {
+extension ExcutableCommand {
     func excute() {
 
         let task = Process()
@@ -58,7 +58,7 @@ extension ExcuteCommand {
 
 
 // MARK: - git
-struct Git: ExcuteCommand {
+struct Git: ExcutableCommand {
     private let gitpath: String = "/usr/bin/git"
     var arguments: [String]
     var path: String {
@@ -70,7 +70,7 @@ struct Git: ExcuteCommand {
 }
 
 // MARK: - pod
-struct Pod: ExcuteCommand {
+struct Pod: ExcutableCommand {
     private var podPath: String
     var path: String {
         return podPath
