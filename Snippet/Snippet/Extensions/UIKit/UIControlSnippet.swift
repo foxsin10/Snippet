@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class EventTrigger {
+final fileprivate class EventTrigger {
     let trigger: (() -> Void)?
 
     init(_ trigger: (() -> Void)?) {
@@ -71,6 +71,7 @@ fileprivate struct TriggerEvent {
 
 fileprivate var viewClickKey: Void?
 fileprivate let viewClickIdentifier = "viewClickKey"
+
 extension SnippetObject where Base: UIView {
 
     @discardableResult

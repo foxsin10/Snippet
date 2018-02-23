@@ -6,11 +6,10 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-import UIKit.UIButton
+import UIKit
 
 extension SnippetObject where Base: UIButton {
 
-    
     @discardableResult
     public func attribute(_ targetString: String,
                           for element: String,
