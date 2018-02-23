@@ -48,8 +48,7 @@ extension SnippetObject where Base: UITextView {
     }
 
     @discardableResult
-    public func set(placeholder: NSAttributedString,
-                    for color: UIColor) -> SnippetObject {
+    public func set(placeholder: NSAttributedString, for color: UIColor) -> SnippetObject {
 
         if let view = base.value(forKey: "_placeholderLabel") as? UILabel {
             view.removeFromSuperview()
