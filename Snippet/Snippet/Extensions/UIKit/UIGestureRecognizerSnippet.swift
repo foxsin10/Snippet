@@ -6,20 +6,21 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-import UIKit.UIGestureRecognizer
+import class UIKit.UIGestureRecognizer
+import Foundation
 
-fileprivate var SpGesGestureRecognizerIdentifier: Void?
+fileprivate var spgestureIdentifier: Void?
 extension SnippetObject where Base: UIGestureRecognizer {
     public var identifier: String {
         set(newValue) {
             objc_setAssociatedObject(base,
-                                     &SpGesGestureRecognizerIdentifier,
+                                     &spgestureIdentifier,
                                      newValue,
                                      .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 
         get {
-            guard let id = objc_getAssociatedObject(base, &SpGesGestureRecognizerIdentifier) as? String else {
+            guard let id = objc_getAssociatedObject(base, &spgestureIdentifier) as? String else {
                 return ""
             }
             return id

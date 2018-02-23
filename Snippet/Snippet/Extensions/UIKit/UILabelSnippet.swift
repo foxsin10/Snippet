@@ -6,7 +6,12 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-import UIKit.UILabel
+import class UIKit.UILabel
+import class UIKit.UIColor
+import class UIKit.UIFont
+import class UIKit.NSMutableAttributedString
+import class Foundation.NSString
+import struct UIKit.NSAttributedStringKey
 
 extension SnippetObject where Base: UILabel {
     @discardableResult

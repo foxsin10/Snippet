@@ -6,7 +6,9 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-import UIKit.UITextField
+import class UIKit.UITextField
+import class UIKit.UIColor
+import class UIKit.UILabel
 
 extension SnippetObject where Base: UITextField {
 

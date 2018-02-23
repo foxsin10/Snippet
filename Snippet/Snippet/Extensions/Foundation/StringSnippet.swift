@@ -7,7 +7,9 @@
 //
 
 import Foundation
-import UIKit
+import class UIKit.NSAttributedString
+import class UIKit.UIColor
+import class UIKit.UIFont
 
 extension String: SnippetComppatiable {}
 extension SnippetObjectProtocol where SOCompatibleType == String {

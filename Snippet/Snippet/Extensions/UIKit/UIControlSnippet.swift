@@ -69,7 +69,7 @@ fileprivate struct TriggerEvent {
 }
 
 
-private var viewClickKey: Void?
+fileprivate var viewClickKey: Void?
 fileprivate let viewClickIdentifier = "viewClickKey"
 extension SnippetObject where Base: UIView {
 
