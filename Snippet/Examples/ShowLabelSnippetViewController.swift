@@ -11,7 +11,7 @@ import UIKit
 class ShowLabelSnippetViewController: UIViewController {
 
 
-    private lazy var items: [(UILabel, UILabel) -> Void] = []
+    private lazy var configurations: [(UILabel, UILabel) -> Void] = []
 
     @IBOutlet weak var tableList: UITableView!
 
@@ -21,9 +21,11 @@ class ShowLabelSnippetViewController: UIViewController {
         // Do any additional setup after loading the view.
 
         // fuctions
-        items = [attributeColor,
-                 attributeFont,
-                 attributeColorAndFont]
+        configurations = [
+            attributeColor,
+            attributeFont,
+            attributeColorAndFont
+        ]
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,14 +69,14 @@ extension ShowLabelSnippetViewController: UITableViewDataSource {
             let textLabel = cell.textLabel,
             let detailLabel = cell.detailTextLabel else { return cell }
 
-        let item = items[indexPath.row]
-        item(textLabel, detailLabel)
+        let config = configurations[indexPath.row]
+        config(textLabel, detailLabel)
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return configurations.count
     }
 }
 
