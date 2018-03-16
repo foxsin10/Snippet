@@ -50,3 +50,6 @@ extension SnippetComppatiable {
 
 import Foundation.NSObject
 extension NSObject: SnippetComppatiable {}
+
+
+

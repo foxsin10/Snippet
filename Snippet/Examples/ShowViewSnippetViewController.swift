@@ -18,6 +18,8 @@ class ShowViewSnippetViewController: UIViewController {
         return v
     }()
 
+
+
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,8 @@ extension ShowViewSnippetViewController {
         if let ges = self.somview.gestureRecognizers {
             print(ges)
         }
+
+
         somview.sp
             .added(to: view)
             .click {
@@ -48,7 +52,10 @@ extension ShowViewSnippetViewController {
                     print(ges)
                 }
                 self.transformSomeView()
-        }
+            }
+            .set(\.backgroundColor, to: .blue)
+
+
     }
 
     private func transformSomeView() {

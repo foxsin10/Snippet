@@ -36,6 +36,7 @@
 		153DBE672022FBC400420831 /* UIGestureRecognizerSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE662022FBC400420831 /* UIGestureRecognizerSnippet.swift */; };
 		153DBE6920230A4E00420831 /* UITextViewSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE6820230A4E00420831 /* UITextViewSnippet.swift */; };
 		153DBE6B202310B400420831 /* UITextfieldSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE6A202310B400420831 /* UITextfieldSnippet.swift */; };
+		1597B987205B50C500718F3E /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597B986205B50C500718F3E /* NSObject.swift */; };
 		15C722A3202B004E0081D663 /* ShowTextViewSnippetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C722A2202B004E0081D663 /* ShowTextViewSnippetViewController.swift */; };
 		15E6159B2022A25B006ED278 /* OptionalSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159A2022A25B006ED278 /* OptionalSnippet.swift */; };
 		15E6159D2022A988006ED278 /* UIButtonSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159C2022A988006ED278 /* UIButtonSnippet.swift */; };
@@ -125,6 +126,7 @@
 		153DBE662022FBC400420831 /* UIGestureRecognizerSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerSnippet.swift; sourceTree = "<group>"; };
 		153DBE6820230A4E00420831 /* UITextViewSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewSnippet.swift; sourceTree = "<group>"; };
 		153DBE6A202310B400420831 /* UITextfieldSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldSnippet.swift; sourceTree = "<group>"; };
+		1597B986205B50C500718F3E /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		15C722A2202B004E0081D663 /* ShowTextViewSnippetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTextViewSnippetViewController.swift; sourceTree = "<group>"; };
 		15E6159A2022A25B006ED278 /* OptionalSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalSnippet.swift; sourceTree = "<group>"; };
 		15E6159C2022A988006ED278 /* UIButtonSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonSnippet.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				15076EE22021CA7A0097CC83 /* Foundation */,
 				15076EE12021CA710097CC83 /* UIKit */,
+				1597B986205B50C500718F3E /* NSObject.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				15076EDF2021C59D0097CC83 /* UILabelSnippet.swift in Sources */,
 				15E6159F2022BCCC006ED278 /* UIControlSnippet.swift in Sources */,
 				15E615A22022E567006ED278 /* TypeInfer.swift in Sources */,
+				1597B987205B50C500718F3E /* NSObject.swift in Sources */,
 				153DBE6920230A4E00420831 /* UITextViewSnippet.swift in Sources */,
 				15E6159B2022A25B006ED278 /* OptionalSnippet.swift in Sources */,
 				15E615A42022E705006ED278 /* ShowButtonSnippetViewController.swift in Sources */,
