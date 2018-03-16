@@ -37,6 +37,7 @@
 		153DBE6920230A4E00420831 /* UITextViewSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE6820230A4E00420831 /* UITextViewSnippet.swift */; };
 		153DBE6B202310B400420831 /* UITextfieldSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE6A202310B400420831 /* UITextfieldSnippet.swift */; };
 		1597B987205B50C500718F3E /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597B986205B50C500718F3E /* NSObject.swift */; };
+		1597B989205BB78400718F3E /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597B986205B50C500718F3E /* NSObject.swift */; };
 		15C722A3202B004E0081D663 /* ShowTextViewSnippetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C722A2202B004E0081D663 /* ShowTextViewSnippetViewController.swift */; };
 		15E6159B2022A25B006ED278 /* OptionalSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159A2022A25B006ED278 /* OptionalSnippet.swift */; };
 		15E6159D2022A988006ED278 /* UIButtonSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E6159C2022A988006ED278 /* UIButtonSnippet.swift */; };
@@ -557,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1597B989205BB78400718F3E /* NSObject.swift in Sources */,
 				152C79E62024544B00F33895 /* StringSnippet.swift in Sources */,
 				152C79E72024544B00F33895 /* OptionalSnippet.swift in Sources */,
 				152C79E82024544B00F33895 /* UIViewSnippet.swift in Sources */,
