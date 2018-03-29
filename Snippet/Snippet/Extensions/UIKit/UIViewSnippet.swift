@@ -37,6 +37,12 @@ extension SnippetObject where Base: UIView {
     }
 
     @discardableResult
+    public func add(_ subviews: UIView...) -> SnippetObject {
+        subviews.forEach { base.addSubview($0) }
+        return self
+    }
+
+    @discardableResult
     public func layout(_ frame: CGRect) -> SnippetObject {
         self.base.frame = frame
         return self
