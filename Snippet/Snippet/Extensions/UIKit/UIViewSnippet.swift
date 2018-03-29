@@ -8,13 +8,14 @@
 
 import UIKit
 
-extension SnippetObject where Base: UIView {
 
+extension SnippetObject where Base: UIView {
 
     /// just draw viewcontent in an image
     ///
     /// - Returns: an image
     public func currentshot() -> UIImage? {
+
 
         UIGraphicsBeginImageContextWithOptions(base.bounds.size, false, UIScreen.main.scale)
         guard let contenxt = UIGraphicsGetCurrentContext() else { return nil }
@@ -25,8 +26,8 @@ extension SnippetObject where Base: UIView {
     }
 
     @discardableResult
-    public func apply(_ settingss: (_ v: Base) -> Void) -> SnippetObject {
-        settingss(base)
+    public func apply(_ settings: (_ v: Base) -> Void) -> SnippetObject {
+        settings(base)
         return self
     }
 
@@ -54,26 +55,10 @@ extension SnippetObject where Base: UIView {
                        width: CGFloat? = nil,
                        height: CGFloat? = nil) -> SnippetObject {
 
-        var fx: CGFloat = self.base.frame.minX
-        var fy = self.base.frame.minY
-        var fwidth = self.base.frame.width
-        var fheight = self.base.frame.height
-
-        if let tx = x {
-            fx = tx
-        }
-
-        if let ty = y {
-            fy = ty
-        }
-
-        if let twidth = width {
-            fwidth = twidth
-        }
-
-        if let theight = height {
-            fheight = theight
-        }
+        let fx: CGFloat = x ?? self.base.frame.minX
+        let fy = y ?? self.base.frame.minY
+        let fwidth = width ?? self.base.frame.width
+        let fheight = height ?? self.base.frame.height
 
         let frame = CGRect.init(x: fx, y: fy, width: fwidth, height: fheight)
         self.base.frame = frame
