@@ -198,6 +198,7 @@ guard info.valid == true else {
 var podspec = argus[1]
 podspec += ".podspec"
 let podPath = findCommander("pod")
+
 let gitPath = findCommander("git")
 
 let git: Git = .init(info.version, gitPath)

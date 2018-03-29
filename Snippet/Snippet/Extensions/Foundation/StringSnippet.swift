@@ -28,7 +28,8 @@ extension SnippetObjectProtocol where SOCompatibleType == String {
 
     }
 
-    public func attribute(for element: String, with sets:(color: UIColor, font: UIFont)) -> NSAttributedString? {
+    public func attribute(for element: String,
+                          with sets:(color: UIColor, font: UIFont)) -> NSAttributedString? {
 
         guard base.contains(element) else { return nil }
         

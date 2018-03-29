@@ -34,6 +34,9 @@ class ViewController: UIViewController {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationItem.largeTitleDisplayMode = .always
         }
+
+        ExampleRefer.button.set(type: UIView.self)
+        ExampleRefer.button.set(type: String.self)
     }
 
     override func didReceiveMemoryWarning() {

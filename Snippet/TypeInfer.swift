@@ -26,6 +26,21 @@ enum ExampleRefer: String {
             return "ShowTextViewSnippetViewController"
         }
     }
+
+
+    func toDig() {
+    }
+
+    func set<T>(type: T.Type) {
+        if type is Codable {
+            print("codable")
+        }
+        else {
+
+            let b = String.init(describing: type)
+            print(b)
+        }
+    }
 }
 
 struct Example {
