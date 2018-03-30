@@ -115,7 +115,10 @@ func validateVersion(_ version: String?) -> VersionInfo {
 }
 
 @discardableResult
-func excute(_ host: String, _ arguments: [String], _ shorPath: Bool = true) -> (statusCode: Int32, result: String) {
+func excute(_ host: String,
+            _ arguments: [String],
+            _ shorPath: Bool = true,
+            _ needfilter: Bool = false) -> (statusCode: Int32, result: String) {
 
     var path = "/usr/bin/" + host
     // 不是全路径
@@ -136,8 +139,12 @@ func excute(_ host: String, _ arguments: [String], _ shorPath: Bool = true) -> (
     task.waitUntilExit()
 
     let data = pipe.fileHandleForReading.readDataToEndOfFile()
+
+
     var output: String = String(data: data, encoding: .utf8)!
-    output = output.replacingOccurrences(of: "\n", with: "")
+    if needfilter {
+        output = output.replacingOccurrences(of: "\n", with: "")
+    }
 
     print(output)
     return (task.terminationStatus, output)
@@ -151,13 +158,13 @@ func pwd() -> String {
 @discardableResult
 func findCommander(_ commander: String) -> String {
     let host = "which"
-    return excute(host, [commander], false).result
+    return excute(host, [commander], false, true).result
 }
 
 @discardableResult
 func excuteShell(_ arguments: [String]) -> (Int32, String) {
     let path = "env"
-    return excute(path, arguments, false)
+    return excute(path, arguments, false, true)
 }
 
 
