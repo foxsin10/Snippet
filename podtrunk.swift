@@ -19,8 +19,8 @@ struct VersionInfo {
 
         guard numbers.count == another.numbers.count else { return false }
 
-        let n = numbers.flatMap { Int($0) }
-        let an = another.numbers.flatMap { Int($0) }
+        let n = numbers.compactMap { Int($0) }
+        let an = another.numbers.compactMap { Int($0) }
         guard n.count == an.count else { return false }
 
         var isSuper = false
@@ -103,7 +103,7 @@ func validateVersion(_ version: String?) -> VersionInfo {
         return VersionInfo.init(version: "", numbers: [], valid: false)
     }
 
-    let t = versions.flatMap { Int($0) }
+    let t = versions.compactMap { Int($0) }
 
     guard t.count == 3 else {
         print("invalid version number")
@@ -139,6 +139,7 @@ func excute(_ host: String, _ arguments: [String], _ shorPath: Bool = true) -> (
     var output: String = String(data: data, encoding: .utf8)!
     output = output.replacingOccurrences(of: "\n", with: "")
 
+    print(output)
     return (task.terminationStatus, output)
 }
 
