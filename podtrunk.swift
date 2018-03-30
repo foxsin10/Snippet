@@ -40,7 +40,7 @@ struct VersionInfo {
 // MARK: - git
 struct Git {
 
-    private let tagInfo: String
+    private var tagInfo: String
     private let gitPath: String
 
     init(_ tagInfo: String, _ gitPath: String) {
@@ -48,12 +48,62 @@ struct Git {
         self.gitPath = gitPath
     }
 
-    func checkTags() -> [String] {
+    @discardableResult
+    mutating func checkTags() -> [String] {
 
-        return  excute(gitPath, ["tag"])
+        let tags = excute(gitPath, ["tag"])
             .result
-            .components(separatedBy: "")
+            .components(separatedBy: "\n")
+            .filter({ $0.count > 1 })
+
+
+        guard tags.count > 0 else {
+            tagInfo = "0.0.1"
+            return []
+        }
+
+        let lastVersion = tags.last!
+
+
+
+        func bumpVersion(_ currentVersion: String) -> String? {
+            let numbers = currentVersion.components(separatedBy: ".")
+                .compactMap({ Int($0) })
+            guard numbers.count == 3 else { return nil }
+
+            var tempNumber = numbers
+            var last = tempNumber[2]
+            var first = tempNumber[0]
+            var second = tempNumber[1]
+
+            last += 1
+            if last > 9 {
+                last = 0
+                second += 1
+                if second > 9 {
+                    second = 0
+                    first += 1
+                }
+            }
+
+            tempNumber = [first, second, last]
+
+            let r = tempNumber.compactMap({String.init($0)})
+                .joined(separator: ".")
+            return r
+
+        }
+
+        if let t = bumpVersion(lastVersion) {
+            self.tagInfo = t
+        } else {
+            fatalError("invalid tags")
+        }
+
+        return tags
     }
+
+
 
     func tag() {
         excute(gitPath, ["tag", tagInfo])
@@ -146,7 +196,7 @@ func excute(_ host: String,
         output = output.replacingOccurrences(of: "\n", with: "")
     }
 
-    print(output)
+//    print(output)
     return (task.terminationStatus, output)
 }
 
@@ -168,59 +218,46 @@ func excuteShell(_ arguments: [String]) -> (Int32, String) {
 }
 
 
-//let p = excute("/usr/bin/env",["pwd"])
 
-//print(p)
-//let fileManager = FileManager.default
-//let a = try! fileManager.contentsOfDirectory(atPath: p)
-//print(a)
+
+
+
+
+
+
 
 
 
 
 
 /******************/
-print("input version, podSpecfile:")
+print("start pod trunk")
 
-guard let inputInfo = readLine() else {
-    print("invalid input info")
-    exit(0)
-}
 
-let argus = inputInfo.components(separatedBy: " ")
+let p = excute("/usr/bin/env",["pwd"], true ,true)
 
-guard argus.count == 2 else {
-    print("invalid input info")
-    exit(0)
-}
+let fileManager = FileManager.default
+let files = try! fileManager.contentsOfDirectory(atPath: p.result)
+let spec = files.filter({ $0.contains("podspec") })
 
-let info = validateVersion(argus[0])
-guard info.valid == true else {
-    print("invalid version parse")
-    exit(0)
+guard spec.count > 0,spec.count == 1 else {
+    fatalError("mutiple spec files exist")
 }
 
 
+let podspec = spec.first!
 
-
-var podspec = argus[1]
-podspec += ".podspec"
 let podPath = findCommander("pod")
-
 let gitPath = findCommander("git")
 
-let git: Git = .init(info.version, gitPath)
-
-let pod: Pod = .init(podspec, podPath)
-
+var git: Git = .init("", gitPath)
+git.checkTags()
 git.tag()
 git.pushTags()
 
+let pod: Pod = .init(podspec, podPath)
 pod.specLint()
 pod.podTrunk()
-
-
-
 
 
 
