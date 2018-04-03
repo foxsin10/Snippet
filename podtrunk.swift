@@ -231,7 +231,7 @@ func excuteShell(_ arguments: [String]) -> (Int32, String) {
 
 
 /******************/
-print("start pod trunk")
+print("start pod trunk \n")
 
 
 let p = excute("/usr/bin/env",["pwd"], true ,true)
