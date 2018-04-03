@@ -48,6 +48,10 @@ struct Git {
         self.gitPath = gitPath
     }
 
+    func revealTag() -> String {
+        return self.tagInfo
+    }
+
     @discardableResult
     mutating func checkTags() -> [String] {
 
@@ -59,7 +63,7 @@ struct Git {
 
         guard tags.count > 0 else {
             tagInfo = "0.0.1"
-            return []
+            return ["0.0.0"]
         }
 
         let lastVersion = tags.last!
@@ -117,7 +121,11 @@ struct Git {
 // MARK: - pod
 struct Pod {
 
+
+    /// spec file
     private let podspec: String
+
+    /// pod path
     private let podPath: String
 
     init(_ podspec: String, _ podPath: String) {
@@ -133,6 +141,29 @@ struct Pod {
         excute(podPath,["trunk", "push", podspec])
     }
 
+}
+
+struct PodspecAdapter {
+
+    private let podspec: String
+    init(podspec: String) {
+        self.podspec = podspec
+    }
+
+    func update(solidVersion: String, targetVersion: String, inPath p: String) {
+        let result = excute("/usr/bin/env", ["cat", podspec], true, false)
+        let pversion = "s.version      = \"\(solidVersion)\""
+        let cversion = "s.version      = \"\(targetVersion)\""
+        let replaceTagInfo = result.result.replacingOccurrences(of: pversion, with: cversion)
+
+        let filePath = p + "/" + podspec
+        if let fileHandle = FileHandle.init(forUpdatingAtPath: filePath){
+
+            let data = replaceTagInfo.data(using: .utf8)!
+            fileHandle.write(data)
+            fileHandle.closeFile()
+        }
+    }
 }
 
 
@@ -164,22 +195,30 @@ func validateVersion(_ version: String?) -> VersionInfo {
     return info
 }
 
+
+/// 命令行命令
+///
+/// - Parameters:
+///   - host: 命令应用
+///   - arguments: 命令参数
+///   - shorPath: 是否启用 host 作为命令完整路径
+///   - needfilter: 过滤 /n
+/// - Returns: 执行状态码， 返回结果
 @discardableResult
 func excute(_ host: String,
             _ arguments: [String],
-            _ shorPath: Bool = true,
+            _ fullPath: Bool = true,
             _ needfilter: Bool = false) -> (statusCode: Int32, result: String) {
 
-    var path = "/usr/bin/" + host
-    // 不是全路径
-    if shorPath {
-        path = host
-    }
+    var path = "/usr/bin/env"
+
+    path = fullPath ? host : path.replacingOccurrences(of: "env", with: host)
 
 
     let task = Process()
     task.launchPath = path
     task.arguments = arguments
+
 
     let pipe = Pipe()
     task.standardOutput = pipe
@@ -190,19 +229,18 @@ func excute(_ host: String,
 
     let data = pipe.fileHandleForReading.readDataToEndOfFile()
 
-
     var output: String = String(data: data, encoding: .utf8)!
     if needfilter {
         output = output.replacingOccurrences(of: "\n", with: "")
     }
 
-//    print(output)
+    print(output)
     return (task.terminationStatus, output)
 }
 
 @discardableResult
 func pwd() -> String {
-    return excute("/usr/bin/",["pwd"]).result
+    return excute("/usr/bin/env",["pwd"], true ,true).result
 }
 
 @discardableResult
@@ -233,25 +271,40 @@ func excuteShell(_ arguments: [String]) -> (Int32, String) {
 /******************/
 print("start pod trunk \n")
 
-
-let p = excute("/usr/bin/env",["pwd"], true ,true)
+// pwd
+let p = pwd()//excute("/usr/bin/env",["pwd"], true ,true)
 
 let fileManager = FileManager.default
-let files = try! fileManager.contentsOfDirectory(atPath: p.result)
+let files = try! fileManager.contentsOfDirectory(atPath: p)
 let spec = files.filter({ $0.contains("podspec") })
 
 guard spec.count > 0,spec.count == 1 else {
     fatalError("mutiple spec files exist")
 }
 
-
+// podspec file
 let podspec = spec.first!
 
+// pod env path
 let podPath = findCommander("pod")
+// git path
 let gitPath = findCommander("git")
 
 var git: Git = .init("", gitPath)
-git.checkTags()
+
+var podVersion = "''"
+if let cv = git.checkTags().last {
+    podVersion = cv
+}
+
+let currentVersion = git.revealTag()
+
+let podAdapter = PodspecAdapter.init(podspec: podspec)
+podAdapter.update(solidVersion: podVersion,
+                  targetVersion: currentVersion,
+                  inPath: p)
+
+
 git.tag()
 git.pushTags()
 
