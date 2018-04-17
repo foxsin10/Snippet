@@ -37,6 +37,7 @@ class ViewController: UIViewController {
 
         ExampleRefer.button.set(type: UIView.self)
         ExampleRefer.button.set(type: String.self)
+
     }
 
     override func didReceiveMemoryWarning() {

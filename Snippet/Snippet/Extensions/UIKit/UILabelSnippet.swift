@@ -17,7 +17,9 @@ extension SnippetObject where Base: UILabel {
     @discardableResult
     public func attribute(_ targetString: String, for element: String, with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
 
-        guard targetString.contains(element), !element.isEmpty else {
+        guard
+            targetString.contains(element),
+            !element.isEmpty else {
             base.text = targetString
             return self
         }
@@ -28,7 +30,6 @@ extension SnippetObject where Base: UILabel {
         let elementRange = baseNString.range(of: element)
 
         let attributeString: NSMutableAttributedString = .init(string: targetString)
-
         let elemntButes: [NSAttributedStringKey: Any] = [
             .font : sets.font,
             .foregroundColor : sets.color

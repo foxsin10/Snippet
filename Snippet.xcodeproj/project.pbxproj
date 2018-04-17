@@ -36,6 +36,8 @@
 		153DBE672022FBC400420831 /* UIGestureRecognizerSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE662022FBC400420831 /* UIGestureRecognizerSnippet.swift */; };
 		153DBE6920230A4E00420831 /* UITextViewSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE6820230A4E00420831 /* UITextViewSnippet.swift */; };
 		153DBE6B202310B400420831 /* UITextfieldSnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153DBE6A202310B400420831 /* UITextfieldSnippet.swift */; };
+		158EF59C2085BC1400559701 /* DictionarySnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158EF59B2085BC1400559701 /* DictionarySnippet.swift */; };
+		158EF59D2085BC1400559701 /* DictionarySnippet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158EF59B2085BC1400559701 /* DictionarySnippet.swift */; };
 		1597B987205B50C500718F3E /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597B986205B50C500718F3E /* NSObject.swift */; };
 		1597B989205BB78400718F3E /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1597B986205B50C500718F3E /* NSObject.swift */; };
 		15C722A3202B004E0081D663 /* ShowTextViewSnippetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C722A2202B004E0081D663 /* ShowTextViewSnippetViewController.swift */; };
@@ -127,6 +129,7 @@
 		153DBE662022FBC400420831 /* UIGestureRecognizerSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerSnippet.swift; sourceTree = "<group>"; };
 		153DBE6820230A4E00420831 /* UITextViewSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewSnippet.swift; sourceTree = "<group>"; };
 		153DBE6A202310B400420831 /* UITextfieldSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldSnippet.swift; sourceTree = "<group>"; };
+		158EF59B2085BC1400559701 /* DictionarySnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionarySnippet.swift; sourceTree = "<group>"; };
 		1597B986205B50C500718F3E /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		15C722A2202B004E0081D663 /* ShowTextViewSnippetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTextViewSnippetViewController.swift; sourceTree = "<group>"; };
 		15E6159A2022A25B006ED278 /* OptionalSnippet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalSnippet.swift; sourceTree = "<group>"; };
@@ -275,6 +278,7 @@
 			children = (
 				15076EE32021CA970097CC83 /* StringSnippet.swift */,
 				15E6159A2022A25B006ED278 /* OptionalSnippet.swift */,
+				158EF59B2085BC1400559701 /* DictionarySnippet.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -421,7 +425,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = yzj;
 				TargetAttributes = {
 					15076EA42021B9490097CC83 = {
@@ -527,6 +531,7 @@
 				15076EDD2021BEE70097CC83 /* UIViewSnippet.swift in Sources */,
 				15076EDA2021BBDB0097CC83 /* SnippetsNameSpace.swift in Sources */,
 				15076EAB2021B9490097CC83 /* ViewController.swift in Sources */,
+				158EF59C2085BC1400559701 /* DictionarySnippet.swift in Sources */,
 				15E6159D2022A988006ED278 /* UIButtonSnippet.swift in Sources */,
 				15076EE42021CA970097CC83 /* StringSnippet.swift in Sources */,
 				15076EA92021B9490097CC83 /* AppDelegate.swift in Sources */,
@@ -569,6 +574,7 @@
 				152C79ED2024544B00F33895 /* UITextViewSnippet.swift in Sources */,
 				152C79EE2024544B00F33895 /* UITextfieldSnippet.swift in Sources */,
 				152C79EF2024544B00F33895 /* SnippetsNameSpace.swift in Sources */,
+				158EF59D2085BC1400559701 /* DictionarySnippet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +650,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -651,6 +658,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -701,6 +709,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -708,6 +717,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

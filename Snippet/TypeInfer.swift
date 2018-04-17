@@ -34,9 +34,7 @@ enum ExampleRefer: String {
     func set<T>(type: T.Type) {
         if type is Codable {
             print("codable")
-        }
-        else {
-
+        } else {
             let b = String.init(describing: type)
             print(b)
         }

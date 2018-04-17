@@ -15,7 +15,6 @@ public protocol SnippetObjectProtocol {
     init(_ base: SOCompatibleType)
 }
 
-
 public struct SnippetObject<Base>: SnippetObjectProtocol {
     public let base: Base
     public init(_ base: Base) {
@@ -23,11 +22,9 @@ public struct SnippetObject<Base>: SnippetObjectProtocol {
     }
 }
 
-
 /// namespace for this repo
 public protocol SnippetComppatiable {
     associatedtype SnippetCompatibleType
-
     static var sp: SnippetObject<SnippetCompatibleType>.Type { get set }
     var sp: SnippetObject<SnippetCompatibleType> { get set }
 }
@@ -50,6 +47,3 @@ extension SnippetComppatiable {
 
 import Foundation.NSObject
 extension NSObject: SnippetComppatiable {}
-
-
-
