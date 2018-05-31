@@ -16,26 +16,27 @@ extension SnippetObject where Base: UIButton {
                           with sets:(color: UIColor, font: UIFont),
                           for state: UIControlState = .normal) -> SnippetObject {
 
-        guard targetString.contains(element), !element.isEmpty else {
+        guard element.count > 0 else {
+            return self
+        }
+        guard targetString.contains(element) else {
             print("no element contained")
             return self
         }
 
-//        base.titleLabel?.attributedText = nil
-
-        let baseNString = targetString as NSString
+        let baseNString = NSString.init(string: targetString)
+//        let baseNString = targetString as NSString
         let elementRange = baseNString.range(of: element)
 
-        let attributeString: NSMutableAttributedString = .init(string: targetString)
-
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString.init(string: targetString)
+        
         let elemntButes: [NSAttributedStringKey: Any] = [
-            .font : sets.font,
-            .foregroundColor : sets.color
+            NSAttributedStringKey.font : sets.font,
+            NSAttributedStringKey.foregroundColor : sets.color
         ]
 
         attributeString.addAttributes(elemntButes, range: elementRange)
 
-//        base.titleLabel?.attributedText = attributeString
         base.setAttributedTitle(attributeString, for: state)
 
         return self

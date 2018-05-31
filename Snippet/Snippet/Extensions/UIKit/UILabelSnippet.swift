@@ -17,16 +17,17 @@ extension SnippetObject where Base: UILabel {
     @discardableResult
     public func attribute(_ targetString: String, for element: String, with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
 
-        guard
-            targetString.contains(element),
-            !element.isEmpty else {
+//        guard element.count > 0 else {
+//            return self
+//        }
+        guard targetString.contains(element), !element.isEmpty else {
             base.text = targetString
             return self
         }
 
         base.attributedText = nil
 
-        let baseNString = targetString as NSString
+        let baseNString = NSString.init(string: targetString)
         let elementRange = baseNString.range(of: element)
 
         let attributeString: NSMutableAttributedString = .init(string: targetString)
