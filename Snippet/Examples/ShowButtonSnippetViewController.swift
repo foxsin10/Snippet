@@ -30,7 +30,7 @@ class ShowButtonSnippetViewController: UIViewController {
 
         let font = UIFont.systemFont(ofSize: 16)
         secondButton.sp
-            .attribute("seconde button", for: "button", with: (.gray, font))
+            .attribute("seconde button", for: "button", color: .gray, font: font)
             .onClick {
                 [unowned self] in
                 self.secondButton.sp.attribute("seconde button", for: " ", with: .black)

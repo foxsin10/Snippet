@@ -16,10 +16,10 @@ extension SnippetObjectProtocol where SOCompatibleType == String {
     @discardableResult
     public func substring(to: Int) -> String {
 
-        guard to >= 0 else {
+        guard to > 0 else {
             return base
         }
-        guard to <= base.count else {
+        guard to < base.count else {
             return base
         }
 
@@ -34,7 +34,7 @@ extension SnippetObjectProtocol where SOCompatibleType == String {
 
         guard base.contains(element) else { return nil }
         
-        let baseNString = base as NSString
+        let baseNString = NSString.init(string: base)
         let elementRange = baseNString.range(of: element)
 
         let attributeString: NSMutableAttributedString = .init(string: base)

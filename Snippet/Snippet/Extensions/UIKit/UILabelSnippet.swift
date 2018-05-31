@@ -10,6 +10,7 @@ import class UIKit.UILabel
 import class UIKit.UIColor
 import class UIKit.UIFont
 import class UIKit.NSMutableAttributedString
+import struct Foundation.NSRange
 import class Foundation.NSString
 import struct UIKit.NSAttributedStringKey
 
@@ -17,9 +18,6 @@ extension SnippetObject where Base: UILabel {
     @discardableResult
     public func attribute(_ targetString: String, for element: String, with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
 
-//        guard element.count > 0 else {
-//            return self
-//        }
         guard targetString.contains(element), !element.isEmpty else {
             base.text = targetString
             return self
@@ -27,13 +25,13 @@ extension SnippetObject where Base: UILabel {
 
         base.attributedText = nil
 
-        let baseNString = NSString.init(string: targetString)
-        let elementRange = baseNString.range(of: element)
+        let baseNString: NSString = NSString.init(string: targetString)
+        let elementRange: NSRange = baseNString.range(of: element)
 
-        let attributeString: NSMutableAttributedString = .init(string: targetString)
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString.init(string: targetString)
         let elemntButes: [NSAttributedStringKey: Any] = [
-            .font : sets.font,
-            .foregroundColor : sets.color
+            NSAttributedStringKey.font : sets.font,
+            NSAttributedStringKey.foregroundColor : sets.color
         ]
 
         attributeString.addAttributes(elemntButes, range: elementRange)

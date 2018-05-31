@@ -13,28 +13,30 @@ extension SnippetObject where Base: UIButton {
     @discardableResult
     public func attribute(_ targetString: String,
                           for element: String,
-                          with sets:(color: UIColor, font: UIFont),
+                          color: UIColor,
+                          font: UIFont,
                           for state: UIControlState = .normal) -> SnippetObject {
 
         guard element.count > 0 else {
             return self
         }
-        guard targetString.contains(element) else {
+
+        guard targetString.contains(element)  else {
             print("no element contained")
             return self
         }
 
-        let baseNString = NSString.init(string: targetString)
-//        let baseNString = targetString as NSString
-        let elementRange = baseNString.range(of: element)
+        let baseNString: NSString = NSString.init(string: targetString)
+        let elementRange: NSRange = baseNString.range(of: element)
 
         let attributeString: NSMutableAttributedString = NSMutableAttributedString.init(string: targetString)
         
         let elemntButes: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey.font : sets.font,
-            NSAttributedStringKey.foregroundColor : sets.color
+            NSAttributedStringKey.font : font,
+            NSAttributedStringKey.foregroundColor : color
         ]
 
+        
         attributeString.addAttributes(elemntButes, range: elementRange)
 
         base.setAttributedTitle(attributeString, for: state)
@@ -45,7 +47,7 @@ extension SnippetObject where Base: UIButton {
     @discardableResult
     public func attribute(_ targetString: String, for element: String, with color: UIColor) -> SnippetObject {
         guard let f = base.titleLabel?.font else { return self }
-        return attribute(targetString, for: element, with: (color, f))
+        return attribute(targetString, for: element, color: color, font: f)
     }
 
    

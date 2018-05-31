@@ -16,12 +16,11 @@ extension SnippetObject where Base: UITextField {
     /// return nil when you call this before set placeholder 
     public var placeholderColor: UIColor? {
         get {
-            guard let l = base.value(forKey: "_placeholderLabel")  else {
+            guard let l = base.value(forKey: "_placeholderLabel") else {
                 return nil
             }
-            guard let label = l as? UILabel else {
-                return nil
-            }
+            guard let label = l as? UILabel  else { return nil }
+
             return label.textColor
         }
 

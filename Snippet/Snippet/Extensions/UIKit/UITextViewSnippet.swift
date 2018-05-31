@@ -16,7 +16,7 @@ import class UIKit.UILabel
 extension SnippetObject where Base: UITextView {
 
     public var placeholder: String? {
-        guard let l = base.value(forKey: "_placeholderLabel") else { return nil }
+        let l = base.value(forKey: "_placeholderLabel")
         guard let label = l as? UILabel else { return nil }
         return label.text
     }
