@@ -15,7 +15,7 @@ extension String: SnippetComppatiable {}
 extension SnippetObjectProtocol where SOCompatibleType == String {
     @discardableResult
     public func substring(to: Int) -> String {
-
+        
         guard to > 0 else {
             return base
         }

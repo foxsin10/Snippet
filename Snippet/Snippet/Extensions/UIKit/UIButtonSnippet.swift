@@ -20,22 +20,21 @@ extension SnippetObject where Base: UIButton {
         guard element.count > 0 else {
             return self
         }
-
+        
         guard targetString.contains(element)  else {
             print("no element contained")
             return self
         }
 
-        let baseNString: NSString = NSString.init(string: targetString)
+        let baseNString: NSString = .init(string: targetString)
         let elementRange: NSRange = baseNString.range(of: element)
 
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString.init(string: targetString)
+        let attributeString: NSMutableAttributedString = .init(string: targetString)
         
         let elemntButes: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey.font : font,
-            NSAttributedStringKey.foregroundColor : color
+            .font : font,
+            .foregroundColor : color
         ]
-
         
         attributeString.addAttributes(elemntButes, range: elementRange)
 
