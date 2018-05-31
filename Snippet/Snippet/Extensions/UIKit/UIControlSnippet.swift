@@ -84,6 +84,7 @@ extension SnippetObject where Base: UIView {
             let SEL = #selector(EventTrigger.triggered)
             var tap = UITapGestureRecognizer.init(target: trigger,
                                                   action: SEL)
+
             tap.sp.identifier = viewClickIdentifier
 
             self.base.isUserInteractionEnabled = true
