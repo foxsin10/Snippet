@@ -49,7 +49,7 @@ extension ShowViewSnippetViewController {
             .click {
                 [unowned self] in
                 if let ges = self.somview.gestureRecognizers {
-                    print(ges)
+                    print((ges, #line))
                 }
                 self.transformSomeView()
             }
@@ -67,7 +67,7 @@ extension ShowViewSnippetViewController {
             .click {
                 [unowned self] in
                 guard let ges = self.somview.gestureRecognizers else { return }
-                print(ges)
+                print((ges, #line))
                 self.imageView.image = self.somview.sp.currentshot()
         }
     }
