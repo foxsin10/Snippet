@@ -77,13 +77,14 @@ extension SnippetObject where Base: UIView {
     @discardableResult
     public func click(_ action: (() -> Void)?) -> SnippetObject {
         
-        guard
-            let targetGes = base.gestureRecognizers,
-            targetGes.count > 0
-        else {
+        guard let targetGes = base.gestureRecognizers else {
+                return  self
+        }
+        guard targetGes.count > 0 else {
             let trigger: EventTrigger = .init(action)
+            let sel = #selector(EventTrigger.triggered)
             var tap = UITapGestureRecognizer.init(target: trigger,
-                                                  action: #selector(EventTrigger.triggered))
+                                                  action: sel)
             tap.sp.identifier = viewClickIdentifier
 
             self.base.isUserInteractionEnabled = true
