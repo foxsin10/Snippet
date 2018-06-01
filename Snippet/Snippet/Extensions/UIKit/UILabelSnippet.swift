@@ -18,12 +18,6 @@ extension SnippetObject where Base: UILabel {
     @discardableResult
     public func attribute(_ targetString: String, for element: String, with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
 
-        
-        guard targetString.contains(element), !element.isEmpty else {
-            base.text = targetString
-            return self
-        }
-
         base.attributedText = nil
 
         let baseNString: NSString = NSString.init(string: targetString)

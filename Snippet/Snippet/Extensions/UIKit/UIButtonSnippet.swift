@@ -17,14 +17,14 @@ extension SnippetObject where Base: UIButton {
                           font: UIFont,
                           for state: UIControlState = .normal) -> SnippetObject {
 
-        guard element.count > 0 else {
-            return self
-        }
-        
-        guard targetString.contains(element)  else {
-            print("no element contained")
-            return self
-        }
+//        guard element.count > 0 else {
+//            return self
+//        }
+//        
+//        guard targetString.contains(element)  else {
+//            print("no element contained")
+//            return self
+//        }
 
         let baseNString: NSString = .init(string: targetString)
         let elementRange: NSRange = baseNString.range(of: element)

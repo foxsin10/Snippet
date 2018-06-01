@@ -15,13 +15,6 @@ extension String: SnippetComppatiable {}
 extension SnippetObjectProtocol where SOCompatibleType == String {
     @discardableResult
     public func substring(to: Int) -> String {
-        
-        guard to > 0 else {
-            return base
-        }
-        guard to < base.count else {
-            return base
-        }
 
         let index = base.index(base.startIndex, offsetBy: to)
         let sub = base[base.startIndex ..< index]

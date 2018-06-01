@@ -8,10 +8,28 @@
 
 import UIKit
 
+public typealias SPAction = () -> Void
 final fileprivate class EventTrigger {
-    let trigger: (() -> Void)?
+    let trigger: SPAction?
 
-    init(_ trigger: (() -> Void)?) {
+    init(_ trigger: SPAction?) {
+        self.trigger = trigger
+    }
+
+    @objc
+    func triggered() {
+        trigger?()
+    }
+}
+
+final fileprivate class MutableTrigger {
+    private var trigger: SPAction?
+
+    init(_ trigger: SPAction?) {
+        self.trigger = trigger
+    }
+
+    func update(_  trigger: SPAction?) {
         self.trigger = trigger
     }
 
@@ -71,17 +89,16 @@ fileprivate struct TriggerEvent {
 
 fileprivate var viewClickKey: Void?
 fileprivate let viewClickIdentifier = "viewClickKey"
-public typealias SPAction = () -> Void
+
 extension SnippetObject where Base: UIView {
 
 
     @discardableResult
     public func click(_ action: SPAction?) -> SnippetObject {
         
-        guard let targetGes = base.gestureRecognizers,
-              targetGes.count > 0 else {
-            let trigger: EventTrigger = .init(action)
-            let SEL = #selector(EventTrigger.triggered)
+        guard let trigger = objc_getAssociatedObject(base, &viewClickKey) as? MutableTrigger else {
+            let trigger: MutableTrigger = .init(action)
+            let SEL = #selector(MutableTrigger.triggered)
             var tap = UITapGestureRecognizer.init(target: trigger,
                                                   action: SEL)
 
@@ -93,25 +110,10 @@ extension SnippetObject where Base: UIView {
                                      &viewClickKey,
                                      trigger,
                                      .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-
             return self
         }
 
-        let target = targetGes.filter({ $0.sp.identifier == viewClickIdentifier })
-        guard target.count == 1 else {
-            return self
-        }
-
-        let newTrigger: EventTrigger = .init(action)
-        guard let trigger = objc_getAssociatedObject(base, &viewClickKey) as? EventTrigger else { return self }
-        
-        target.first!.removeTarget(trigger, action: #selector(EventTrigger.triggered))
-        target.first!.addTarget(newTrigger, action: #selector(EventTrigger.triggered))
-
-        objc_setAssociatedObject(self.base,
-                                 &viewClickKey,
-                                 newTrigger,
-                                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        trigger.update(action)
         return self
     }
 
