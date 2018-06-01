@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SwiftSnippet"
-  s.version      = "0.2.1"
+  s.version      = "0.2.5"
   s.summary      = "some code snippet with namespace."
 
   # This description is used to generate tags and improve search results.
