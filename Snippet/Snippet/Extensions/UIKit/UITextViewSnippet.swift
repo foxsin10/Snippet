@@ -31,18 +31,22 @@ extension SnippetObject where Base: UITextView {
     // this way noneed to adjust the label frame to match the indicator
     @discardableResult
     public func set(placeholder: String, for color: UIColor) -> SnippetObject {
+        let config = {
+            (v: UILabel) in
+            v.text = placeholder
+            v.numberOfLines = 0
+            v.textColor = color
+            v.backgroundColor = .clear
+            v.font = self.base.font
+        }
         if let view = base.value(forKey: "_placeholderLabel") as? UILabel {
-            view.removeFromSuperview()
+            config(view)
+            return self
         }
 
         let label = UILabel()
-
-        label.text = placeholder
-        label.numberOfLines = 0
-        label.textColor = color
-        label.backgroundColor = .clear
-        label.font = base.font
-
+        config(label)
+        
         base.addSubview(label)
         base.setValue(label, forKey: "_placeholderLabel")
         return self
@@ -51,20 +55,26 @@ extension SnippetObject where Base: UITextView {
     @discardableResult
     public func set(placeholder: NSAttributedString, for color: UIColor) -> SnippetObject {
 
-        if let view = base.value(forKey: "_placeholderLabel") as? UILabel {
-            view.removeFromSuperview()
+        let config = {
+            (v: UILabel) in
+            v.numberOfLines = 0
+            v.textColor = color
+            v.backgroundColor = UIColor.clear
+            v.font = self.base.font
+            v.attributedText = placeholder
         }
 
-        let label = UILabel()
+        if let v = base.value(forKey: "_placeholderLabel") as? UILabel {
+            config(v)
+            return self
+        }
 
-        label.numberOfLines = 0
-        label.textColor = color
-        label.backgroundColor = UIColor.clear
-        label.font = base.font
-        label.attributedText = placeholder
+        let v = UILabel()
+        config(v)
 
-        base.addSubview(label)
-        base.setValue(label, forKey: "_placeholderLabel")
+
+        base.addSubview(v)
+        base.setValue(v, forKey: "_placeholderLabel")
 
         return self
     }

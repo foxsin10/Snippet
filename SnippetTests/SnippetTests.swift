@@ -87,4 +87,134 @@ extension SnippetTests {
         assert(labelAttributedText == attributeString, "judge AttibutedText failed")
 
     }
+
+    func testGroup() {
+
+        let details: [ProcessDetail] = [
+            ProcessDetail.init(enKey: "22", showKey: "33333", showValue: "5adada"),
+            ProcessDetail.init(enKey: "2452", showKey: "2313", showValue: "sdaiuqeq")
+        ]
+        let models: [ProcessValue<String, [ProcessDetail]>] = [
+            .stringValue("sssss"),
+            .arrayValue(details)
+        ]
+
+        let data = try! JSONEncoder().encode(models)
+        let json = String.init(data: data, encoding: .utf8)!
+        print(json)
+
+        let decoded = try! JSONDecoder().decode([ProcessValue<String, [ProcessDetail]>].self, from: data)
+        print("--------")
+        print(decoded)
+    }
+
+    func testDe() {
+        let json = """
+             [{
+                "value": [
+                    {
+                        "enKey": "tabShow",
+                        "showKey": "本人信息",
+                        "showValue": "personal_details"
+                    }
+                ]
+            },
+            {
+                "value": "ssssss"
+            },{
+                "value": null
+            }]
+        """
+
+        let data = json.data(using: .utf8)!
+        let decoder = JSONDecoder.init()
+
+        do {
+            let result = try decoder.decode([TestModel].self, from: data)
+
+            print(result)
+        } catch(let e) {
+            print(e)
+        }
+    }
+}
+
+
+struct TestModel: Codable {
+    var value: ProcessValue<String, [ProcessDetail]>?
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        if let string = try? container.decode(String.self, forKey: .value) {
+            value = .stringValue(string)
+        } else if let array = try? container.decode([ProcessDetail].self, forKey: .value) {
+            value = .arrayValue(array)
+        } else {
+            value = nil
+        }
+
+    }
+}
+
+struct ProcessDetail: Codable {
+    var enKey: String?
+    var showKey: String?
+    var showValue: String?
+}
+
+enum ProcessValue<A: Codable, B: Codable> {
+
+    case stringValue(A?)
+    case arrayValue(B?)
+}
+
+extension ProcessValue: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .arrayValue(let b):
+            guard let s = b else {
+                return "array: [] \n"
+            }
+            return "array: \(s) \n"
+        case .stringValue(let a):
+            guard let s = a else {
+                return "string: nil \n"
+            }
+            return "string: \(s)"
+        }
+    }
+}
+
+extension ProcessValue: Decodable {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        do {
+            let leftValue =  try container.decode(A.self, forKey: .stringValue)
+            self = .stringValue(leftValue)
+        } catch (let e) {
+            print(e)
+            let rightValue =  try container.decode(B.self, forKey: .arrayValue)
+            self = .arrayValue(rightValue)
+        }
+
+    }
+}
+
+extension ProcessValue: Encodable {
+    enum CodingKeys: CodingKey {
+        case stringValue
+        case arrayValue
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        switch self {
+        case .stringValue(let value):
+            try container.encode(value, forKey: .stringValue)
+        case .arrayValue(let value):
+            try container.encode(value, forKey: .arrayValue)
+        }
+    }
 }
