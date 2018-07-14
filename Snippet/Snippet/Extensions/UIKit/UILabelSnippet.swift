@@ -18,15 +18,17 @@ extension SnippetObject where Base: UILabel {
     @discardableResult
     public func attribute(_ targetString: String, for element: String, with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
 
-        base.attributedText = nil
+//        base.attributedText = nil
+        guard targetString.contains(element), let startIndex = targetString.index(of: element[element.startIndex]) else {
+            return self
+        }
 
-        let baseNString: NSString = NSString.init(string: targetString)
-        let elementRange: NSRange = baseNString.range(of: element)
+        let elementRange = NSRange.init(location: startIndex.encodedOffset, length: element.count)
         
         let attributeString: NSMutableAttributedString = NSMutableAttributedString.init(string: targetString)
         let elemntButes: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey.font : sets.font,
-            NSAttributedStringKey.foregroundColor : sets.color
+            .font : sets.font,
+            .foregroundColor : sets.color
         ]
 
         attributeString.addAttributes(elemntButes, range: elementRange)

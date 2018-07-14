@@ -37,6 +37,19 @@ class SnippetTests: XCTestCase {
 
 
 extension SnippetTests {
+    func testString() {
+        let astring = "adssk"
+        let aIndex = astring.index(of: "a")
+        let dIndex = astring.index(of: "d")
+        guard let location = dIndex?.encodedOffset else { return }
+        let ocString = astring as NSString
+        let range = ocString.range(of: "d")
+        let swiftRange = NSRange.init(location: location, length: 1)
+        print(range)
+        print("---")
+        print(swiftRange)
+        assert( swiftRange == range )
+    }
 
     func testViewClick() {
         let v = UIView()
@@ -108,7 +121,7 @@ extension SnippetTests {
         print(decoded)
     }
 
-    func testDe() {
+    func testEnumCodable() {
         let json = """
              [{
                 "value": [
@@ -132,6 +145,18 @@ extension SnippetTests {
         do {
             let result = try decoder.decode([TestModel].self, from: data)
 
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(result)
+                let s = String.init(data: data, encoding: .utf8)!
+                print("en")
+                print(s)
+            } catch (let e) {
+                print("en")
+                print(e)
+            }
+
+            print("---")
             print(result)
         } catch(let e) {
             print(e)

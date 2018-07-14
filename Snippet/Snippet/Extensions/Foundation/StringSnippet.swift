@@ -18,7 +18,7 @@ extension SnippetObjectProtocol where SOCompatibleType == String {
 
         let index = base.index(base.startIndex, offsetBy: to)
         let sub = base[base.startIndex ..< index]
-        return String(describing: sub)
+        return String.init(sub)
 
     }
 

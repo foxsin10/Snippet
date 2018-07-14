@@ -16,13 +16,23 @@ extension SnippetObject where Base: UIView {
     /// - Returns: an image
     public func currentshot() -> UIImage? {
 
+        guard #available(iOS 10.0, *) else {
+            UIGraphicsBeginImageContextWithOptions(base.bounds.size, false, UIScreen.main.scale)
+            guard let contenxt = UIGraphicsGetCurrentContext() else { return nil }
+            base.layer.render(in: contenxt)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            return image
+        }
 
-        UIGraphicsBeginImageContextWithOptions(base.bounds.size, false, UIScreen.main.scale)
-        guard let contenxt = UIGraphicsGetCurrentContext() else { return nil }
-        base.layer.render(in: contenxt)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
+        let format = UIGraphicsImageRendererFormat.init()
+        format.scale = UIScreen.main.scale
+        let render = UIGraphicsImageRenderer.init(size: base.bounds.size, format: format)
+
+        return render.image(actions: {
+            (ctx) in
+            self.base.layer.render(in: ctx.cgContext)
+        })
     }
 
     @discardableResult

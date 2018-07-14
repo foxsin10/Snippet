@@ -18,7 +18,9 @@ class ShowViewSnippetViewController: UIViewController {
         return v
     }()
 
-
+    deinit {
+        print("\(self) deinit")
+    }
 
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
@@ -54,7 +56,6 @@ extension ShowViewSnippetViewController {
                 self.transformSomeView()
             }
             .set(\.backgroundColor, to: .blue)
-
 
     }
 
