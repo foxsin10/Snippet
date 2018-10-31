@@ -98,7 +98,7 @@ Pod::Spec.new do |s|
   end 
   
   s.subspec 'framework' do |ss|
-    ss.ios.vendored_framework = "Snippet_Products/*.framework"
+    ss.ios.vendored_framework = "Snippet_Products/#{s.version}/*.framework"
   end
   # s.exclude_files = "Classes/Exclude"
   # s.public_header_files = "Classes/**/*.h"
