@@ -1,4 +1,0 @@
-framework module SwiftSnippet {
-    header "SwiftSnippet-Swift.h"
-    requires objc
-}
