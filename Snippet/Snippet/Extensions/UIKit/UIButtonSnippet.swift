@@ -15,7 +15,7 @@ extension SnippetObject where Base: UIButton {
                           for element: String,
                           color: UIColor,
                           font: UIFont,
-                          for state: UIControlState = .normal) -> SnippetObject {
+                          for state: UIControl.State = .normal) -> SnippetObject {
 
         guard element.count > 0 else {
             return self
@@ -23,16 +23,19 @@ extension SnippetObject where Base: UIButton {
        
         guard targetString.contains(element),
               let startIndex = targetString.index(of: element[element.startIndex])   else {
-            print("[Snippet Button Attribute]: no element contained")
+            debugPrint("[Snippet Button Attribute]: no element contained")
             return self
         }
         
 
-        let elementRange = NSRange.init(location: startIndex.encodedOffset, length: element.count)
+        let elementRange = NSRange(
+            location: startIndex.encodedOffset,
+            length: element.count
+        )
 
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString.init(string: targetString)
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: targetString)
         
-        let elemntButes: [NSAttributedStringKey: Any] = [
+        let elemntButes: [NSAttributedString.Key: Any] = [
             .font : font,
             .foregroundColor : color
         ]

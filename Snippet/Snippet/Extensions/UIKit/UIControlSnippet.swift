@@ -128,7 +128,7 @@ extension SnippetObject where Base: UIControl {
     }
 
     @discardableResult
-    public func link(_ event: UIControlEvents, for action: (() -> Void)? = nil) -> SnippetObject {
+    public func link(_ event: UIControl.Event, for action: (() -> Void)? = nil) -> SnippetObject {
         var key: Void?
         switch event {
         case .touchDown:

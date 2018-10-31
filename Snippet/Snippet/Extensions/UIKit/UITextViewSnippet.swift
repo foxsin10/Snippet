@@ -6,11 +6,7 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-import class UIKit.UITextView
-import class UIKit.NSAttributedString
-import class UIKit.UIColor
-import class UIKit.UIFont
-import class UIKit.UILabel
+import UIKit
 
 // MARK: - kvc helps 
 extension SnippetObject where Base: UITextView {

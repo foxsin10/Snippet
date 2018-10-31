@@ -6,27 +6,27 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-import class UIKit.UILabel
-import class UIKit.UIColor
-import class UIKit.UIFont
-import class UIKit.NSMutableAttributedString
-import struct Foundation.NSRange
-import class Foundation.NSString
-import struct UIKit.NSAttributedStringKey
+import UIKit
 
 extension SnippetObject where Base: UILabel {
     @discardableResult
-    public func attribute(_ targetString: String, for element: String, with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
+    public func attribute(_ targetString: String,
+                          for element: String,
+                          with sets:(color: UIColor, font: UIFont)) -> SnippetObject {
 
 //        base.attributedText = nil
-        guard targetString.contains(element), let startIndex = targetString.index(of: element[element.startIndex]) else {
+        guard targetString.contains(element),
+              let startIndex = targetString.index(of: element[element.startIndex]) else {
             return self
         }
 
-        let elementRange = NSRange.init(location: startIndex.encodedOffset, length: element.count)
+        let elementRange = NSRange(
+            location: startIndex.encodedOffset,
+            length: element.count
+        )
         
-        let attributeString: NSMutableAttributedString = NSMutableAttributedString.init(string: targetString)
-        let elemntButes: [NSAttributedStringKey: Any] = [
+        let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: targetString)
+        let elemntButes: [NSAttributedString.Key: Any] = [
             .font : sets.font,
             .foregroundColor : sets.color
         ]

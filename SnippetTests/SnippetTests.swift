@@ -84,7 +84,7 @@ extension SnippetTests {
         let baseNString = targetString as NSString
         let elementRange = baseNString.range(of: element)
         let attributeString: NSMutableAttributedString = .init(string: targetString)
-        let elemntButes: [NSAttributedStringKey: Any] = [
+        let elemntButes: [NSAttributedString.Key: Any] = [
             .font : label.font,
             .foregroundColor : UIColor.purple
         ]

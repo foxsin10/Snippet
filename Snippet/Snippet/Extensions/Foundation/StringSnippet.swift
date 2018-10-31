@@ -7,9 +7,7 @@
 //
 
 import Foundation
-import class UIKit.NSAttributedString
-import class UIKit.UIColor
-import class UIKit.UIFont
+import UIKit
 
 extension String: SnippetComppatiable {}
 extension SnippetObjectProtocol where SOCompatibleType == String {
@@ -32,7 +30,7 @@ extension SnippetObjectProtocol where SOCompatibleType == String {
 
         let attributeString: NSMutableAttributedString = .init(string: base)
 
-        let elemntButes: [NSAttributedStringKey: Any] = [
+        let elemntButes: [NSAttributedString.Key: Any] = [
             .font : sets.font,
             .foregroundColor : sets.color
         ]

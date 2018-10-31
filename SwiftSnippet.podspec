@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SwiftSnippet"
-  s.version      = "0.2.5"
+  s.version      = "0.2.6"
   s.summary      = "some code snippet with namespace."
 
   # This description is used to generate tags and improve search results.
@@ -92,8 +92,13 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-
-  s.source_files  = "Snippet/Snippet/**/*"
+  s.subspec 'source' do |ss|
+    ss.source_files  = "Snippet/Snippet/**/*"
+  end 
+  
+  s.subspec 'framework' do |ss|
+    ss.ios.verdored_framework = "Snippet/Snippet_Products/*.framework"
+  end
   # s.exclude_files = "Classes/Exclude"
   # s.public_header_files = "Classes/**/*.h"
 
@@ -101,7 +106,7 @@ Pod::Spec.new do |s|
   #
   #  Specify the swift version
   #
-  s.swift_version = "4.1.2"
+  s.swift_version = "4.2"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

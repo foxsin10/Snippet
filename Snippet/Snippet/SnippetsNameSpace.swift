@@ -45,5 +45,5 @@ extension SnippetComppatiable {
     }
 }
 
-import Foundation.NSObject
+import Foundation
 extension NSObject: SnippetComppatiable {}

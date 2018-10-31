@@ -6,8 +6,7 @@
 //  Copyright © 2018年 yzj. All rights reserved.
 //
 
-import class UIKit.UIGestureRecognizer
-import Foundation
+import UIKit
 
 fileprivate var spgestureIdentifier: Void?
 extension SnippetObject where Base: UIGestureRecognizer {
