@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		QCQB56uP5bDiFeZ5pavyI9O0lkQ=
+		t2ITYOGACI8puI6dbDwwB8RtWcc=
 		</data>
 		<key>Modules/SnippetKit.swiftmodule/i386.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/SnippetKit.swiftmodule/i386.swiftmodule</key>
 		<data>
-		Yh1r1AVX8RwxlSFqFkQ20Kp/QtU=
+		tiuPvXeM3zKFtXldxz8xsXdJhEs=
 		</data>
 		<key>Modules/SnippetKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/SnippetKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		Jrhxd1TfD8qyc4HEuXrM5BuIj+M=
+		fQjN7/zKPKhjzjXNRnuq5dUhz8o=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -76,11 +76,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Yh1r1AVX8RwxlSFqFkQ20Kp/QtU=
+			tiuPvXeM3zKFtXldxz8xsXdJhEs=
 			</data>
 			<key>hash2</key>
 			<data>
-			OPrkV/eu3TyHv+Q9NoFCEAaCZE5u5dUjlXkOg6k3ZiE=
+			O3OafInx3qfQoGzj5MPJP0tEBSNoH4M8bsCETB6uB24=
 			</data>
 		</dict>
 		<key>Modules/SnippetKit.swiftmodule/x86_64.swiftdoc</key>
@@ -98,11 +98,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Jrhxd1TfD8qyc4HEuXrM5BuIj+M=
+			fQjN7/zKPKhjzjXNRnuq5dUhz8o=
 			</data>
 			<key>hash2</key>
 			<data>
-			An4DX6ay6OLsa6d5DMOe0z4zZpJDazj2ZrdFDyesh2Y=
+			iZMIXlKemadZQi8T5fk2LAkbLkFZEUlQ2kSRgOnGWfQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

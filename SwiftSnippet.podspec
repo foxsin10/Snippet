@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SwiftSnippet"
-  s.version      = "0.2.6"
+  s.version      = "0.3.1"
   s.summary      = "some code snippet with namespace."
 
   # This description is used to generate tags and improve search results.
@@ -97,7 +97,7 @@ Pod::Spec.new do |s|
   end 
   
   s.subspec 'framework' do |ss|
-    ss.ios.verdored_framework = "Snippet/Snippet_Products/*.framework"
+    ss.ios.vendored_framework = "Snippet_Products/*.framework"
   end
   # s.exclude_files = "Classes/Exclude"
   # s.public_header_files = "Classes/**/*.h"
