@@ -4,52 +4,41 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/SnippetKit-Swift.h</key>
-		<data>
-		Ow3LsiAUoQ5Afvc1nGXBz6/Cp8U=
-		</data>
 		<key>Headers/SnippetKit.h</key>
 		<data>
 		pChA1xT6n8wVUq867n6J4Agt/zU=
 		</data>
+		<key>Headers/SwiftSnippet-Swift.h</key>
+		<data>
+		7AWaOwdpVrEmOMM7xFL2cW9Iakk=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		t2ITYOGACI8puI6dbDwwB8RtWcc=
+		v/9qW9Udlpf3gQXqW9Y4VOi9ZhM=
 		</data>
-		<key>Modules/SnippetKit.swiftmodule/i386.swiftdoc</key>
+		<key>Modules/SwiftSnippet.swiftmodule/i386.swiftdoc</key>
 		<data>
-		r/rVXtizXi6UfpRMFbjYNjnDUz8=
+		ZshA2D/vsQRvPwe8zin6K2RyoQY=
 		</data>
-		<key>Modules/SnippetKit.swiftmodule/i386.swiftmodule</key>
+		<key>Modules/SwiftSnippet.swiftmodule/i386.swiftmodule</key>
 		<data>
-		tiuPvXeM3zKFtXldxz8xsXdJhEs=
+		7dvIRLRkV/4SkUZShQ07kBV6Fss=
 		</data>
-		<key>Modules/SnippetKit.swiftmodule/x86_64.swiftdoc</key>
+		<key>Modules/SwiftSnippet.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		2dga3BxQziALCF/kh6kGMuIrhb8=
+		80VOwzy4mY7jjSiZKFFPpuzC3eg=
 		</data>
-		<key>Modules/SnippetKit.swiftmodule/x86_64.swiftmodule</key>
+		<key>Modules/SwiftSnippet.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		fQjN7/zKPKhjzjXNRnuq5dUhz8o=
+		JLddzcz3HfQBgaFqVdq2tDcwPbU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		o6w+lHYaZVUJ9rnXp6HgzlBAGbc=
+		LmrThXcJvC3MfDoD2AZ1O4qqdk8=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/SnippetKit-Swift.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Ow3LsiAUoQ5Afvc1nGXBz6/Cp8U=
-			</data>
-			<key>hash2</key>
-			<data>
-			VqMbtMlrQ4DKnI0oNPeRWtaCa3bUMazrvbCFQN3i0TA=
-			</data>
-		</dict>
 		<key>Headers/SnippetKit.h</key>
 		<dict>
 			<key>hash</key>
@@ -61,59 +50,70 @@
 			j2PWaJDlfnfOuwh0czoytApc4ZuWA4s8cK0cLdaOfdg=
 			</data>
 		</dict>
-		<key>Modules/SnippetKit.swiftmodule/i386.swiftdoc</key>
+		<key>Headers/SwiftSnippet-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			r/rVXtizXi6UfpRMFbjYNjnDUz8=
+			7AWaOwdpVrEmOMM7xFL2cW9Iakk=
 			</data>
 			<key>hash2</key>
 			<data>
-			YNnMuD9pSZGjcIzgTA4gtmo2Eq10LetJp+26/mKuJYQ=
+			e1tlx+uZUMvWYNsjOkdI4sPEbHEDiumZEcLpz7Ntv+k=
 			</data>
 		</dict>
-		<key>Modules/SnippetKit.swiftmodule/i386.swiftmodule</key>
+		<key>Modules/SwiftSnippet.swiftmodule/i386.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tiuPvXeM3zKFtXldxz8xsXdJhEs=
+			ZshA2D/vsQRvPwe8zin6K2RyoQY=
 			</data>
 			<key>hash2</key>
 			<data>
-			O3OafInx3qfQoGzj5MPJP0tEBSNoH4M8bsCETB6uB24=
+			J1FcwgBLo+tuOXUH1OjboM30Z9UrwRENttq5VNYTqMs=
 			</data>
 		</dict>
-		<key>Modules/SnippetKit.swiftmodule/x86_64.swiftdoc</key>
+		<key>Modules/SwiftSnippet.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2dga3BxQziALCF/kh6kGMuIrhb8=
+			7dvIRLRkV/4SkUZShQ07kBV6Fss=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZHvmcVmOqvMGwcbl4y9/cy3zn5HxycI9LBTyNPDObV4=
+			kqD1u9Fd0eGarmewhVoUP9ilk+ZZPxZJTTDXozkhtE8=
 			</data>
 		</dict>
-		<key>Modules/SnippetKit.swiftmodule/x86_64.swiftmodule</key>
+		<key>Modules/SwiftSnippet.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fQjN7/zKPKhjzjXNRnuq5dUhz8o=
+			80VOwzy4mY7jjSiZKFFPpuzC3eg=
 			</data>
 			<key>hash2</key>
 			<data>
-			iZMIXlKemadZQi8T5fk2LAkbLkFZEUlQ2kSRgOnGWfQ=
+			OB5t0sWCbFnDxeQQn2p5wbCz96Ey16uyoL3XjFH3YdQ=
+			</data>
+		</dict>
+		<key>Modules/SwiftSnippet.swiftmodule/x86_64.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			JLddzcz3HfQBgaFqVdq2tDcwPbU=
+			</data>
+			<key>hash2</key>
+			<data>
+			tlxvqnANxesGBvrXlWZ69A7sZOJwMr0WjyhDHGtwVfo=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			o6w+lHYaZVUJ9rnXp6HgzlBAGbc=
+			LmrThXcJvC3MfDoD2AZ1O4qqdk8=
 			</data>
 			<key>hash2</key>
 			<data>
-			0+yQTOtBZhnHqIAmjMJQBTRONByi/gba6b+Zh+Rud68=
+			/BCLsP2nXqtxbYOKOM6UB7QYzrzSzxfZyOvJ7qmGHt4=
 			</data>
 		</dict>
 	</dict>

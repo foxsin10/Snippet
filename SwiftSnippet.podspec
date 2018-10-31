@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SwiftSnippet"
-  s.version      = "0.3.1"
+  s.version      = "0.3.3"
   s.summary      = "some code snippet with namespace."
 
   # This description is used to generate tags and improve search results.
@@ -92,6 +92,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
+  s.default_subspec = 'framework'
   s.subspec 'source' do |ss|
     ss.source_files  = "Snippet/Snippet/**/*"
   end 
