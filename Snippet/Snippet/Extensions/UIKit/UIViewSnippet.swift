@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension SnippetObject where Base: UIView {
+public extension SnippetObject where Base: UIView {
 
     /// just draw viewcontent in an image
     ///

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension String: SnippetComppatiable {}
-extension SnippetObjectProtocol where SOCompatibleType == String {
+public extension SnippetObjectProtocol where SOCompatibleType == String {
     @discardableResult
     public func substring(to: Int) -> String {
 

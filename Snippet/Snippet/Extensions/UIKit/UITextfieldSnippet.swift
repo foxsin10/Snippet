@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SnippetObject where Base: UITextField {
+public extension SnippetObject where Base: UITextField {
 
 
     /// return nil when you call this before set placeholder 

@@ -7,8 +7,9 @@
 //
 
 import Foundation
+
 extension Optional: SnippetComppatiable {}
-extension SnippetObjectProtocol where SOCompatibleType == Optional<String> {
+public extension SnippetObjectProtocol where SOCompatibleType == Optional<String> {
 
     public var value: String {
         guard let s = base else { return "" }

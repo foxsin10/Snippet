@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SnippetObject where Base: UILabel {
+public extension SnippetObject where Base: UILabel {
     @discardableResult
     public func attribute(_ targetString: String,
                           for element: String,

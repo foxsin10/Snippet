@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - kvc helps 
-extension SnippetObject where Base: UITextView {
+public extension SnippetObject where Base: UITextView {
 
     public var placeholder: String? {
         guard let label = base.value(forKey: "_placeholderLabel") as? UILabel else { return nil }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-extension SnippetObject where Base: AnyObject {
+public extension SnippetObject where Base: AnyObject {
     @discardableResult
     public func set<T>(_ keypath: ReferenceWritableKeyPath<Base, T>, to value: T) -> SnippetObject {
         base[keyPath: keypath] = value

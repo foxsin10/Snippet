@@ -9,7 +9,7 @@
 import UIKit
 
 fileprivate var spgestureIdentifier: Void?
-extension SnippetObject where Base: UIGestureRecognizer {
+public extension SnippetObject where Base: UIGestureRecognizer {
     public var identifier: String {
         set(newValue) {
             objc_setAssociatedObject(base,

@@ -29,7 +29,7 @@ public protocol SnippetComppatiable {
     var sp: SnippetObject<SnippetCompatibleType> { get set }
 }
 
-extension SnippetComppatiable {
+public extension SnippetComppatiable {
     public static var sp: SnippetObject<Self>.Type {
         get {
             return SnippetObject<Self>.self

@@ -8,7 +8,7 @@
 
 import Foundation
 extension Dictionary: SnippetComppatiable {}
-extension SnippetObjectProtocol where SOCompatibleType == Dictionary<String, String> {
+public extension SnippetObjectProtocol where SOCompatibleType == Dictionary<String, String> {
     public func trace() {
         
     }

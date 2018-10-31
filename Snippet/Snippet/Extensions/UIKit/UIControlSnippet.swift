@@ -90,7 +90,7 @@ fileprivate struct TriggerEvent {
 fileprivate var viewClickKey: Void?
 fileprivate let viewClickIdentifier = "viewClickKey"
 
-extension SnippetObject where Base: UIView {
+public extension SnippetObject where Base: UIView {
 
 
     @discardableResult
@@ -119,7 +119,7 @@ extension SnippetObject where Base: UIView {
 
 }
 
-extension SnippetObject where Base: UIControl {
+public extension SnippetObject where Base: UIControl {
     
     @discardableResult
     public func onClick(_ action: (() -> Void)?) -> SnippetObject {

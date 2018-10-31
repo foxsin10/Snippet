@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SnippetObject where Base: UIButton {
+public extension SnippetObject where Base: UIButton {
 
     @discardableResult
     public func attribute(_ targetString: String,
