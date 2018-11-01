@@ -1,4 +1,27 @@
-D_DIR}/Debug-iphonesimulator/${TARGET_NAME}.framework" "${UNIVERSAL_OUTPUT_FOLDER}"
+# Type a script or drag a script file from your workspace to insert its path.
+#!/bin/sh
+#要build的target名
+TARGET_NAME='SwiftSnippet'
+#${PROJECT_NAME}
+if [[ $1 ]]
+then
+TARGET_NAME=$1
+fi
+UNIVERSAL_OUTPUT_FOLDER="${SRCROOT}/${PROJECT_NAME}_Products/"
+
+#创建输出目录，并删除之前的framework文件
+mkdir -p "${UNIVERSAL_OUTPUT_FOLDER}"
+rm -rf "${UNIVERSAL_OUTPUT_FOLDER}/${TARGET_NAME}.framework"
+
+#分别编译模拟器和真机的Framework
+xcodebuild -target "${TARGET_NAME}" ONLY_ACTIVE_ARCH=NO -configuration Debug -sdk iphoneos BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}" clean build
+xcodebuild -target "${TARGET_NAME}" ONLY_ACTIVE_ARCH=NO -configuration Release -sdk iphoneos BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}" clean build
+xcodebuild -target "${TARGET_NAME}" ONLY_ACTIVE_ARCH=NO -configuration Debug -sdk iphonesimulator BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}" clean build
+xcodebuild -target "${TARGET_NAME}" ONLY_ACTIVE_ARCH=NO -configuration Release -sdk iphonesimulator BUILD_DIR="${BUILD_DIR}" BUILD_ROOT="${BUILD_ROOT}" clean build
+
+
+#拷贝framework到univer目录
+cp -R "${BUILD_DIR}/Debug-iphonesimulator/${TARGET_NAME}.framework" "${UNIVERSAL_OUTPUT_FOLDER}"
 cp -R "${BUILD_DIR}/Release-iphoneos/${TARGET_NAME}.framework/Modules/${TARGET_NAME}.swiftmodule/" "${UNIVERSAL_OUTPUT_FOLDER}${TARGET_NAME}.framework/Modules/${TARGET_NAME}.swiftmodule/"
 
 # 合并framework，输出最终的framework到build目录
